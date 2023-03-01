@@ -6,19 +6,20 @@
 #    By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/16 16:17:16 by dkaratae          #+#    #+#              #
-#    Updated: 2023/02/26 18:58:42 by dkaratae         ###   ########.fr        #
+#    Updated: 2023/02/27 17:06:21 by dkaratae         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc -g3
 
-CFLAGS = -Wextra -Wall -Werror
+CFLAGS = -Wextra -Wall -Werror -fsanitize=thread
 
 PHILO = philo
 
 FILES = 	philo.c \
 			philo_utils.c \
 			parce.c \
+			time.c \
 
 OBJS	=	$(FILES:%c=%o)
 

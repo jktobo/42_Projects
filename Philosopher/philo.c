@@ -6,17 +6,20 @@
 /*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 11:29:49 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/02/26 21:03:14 by dkaratae         ###   ########.fr       */
+/*   Updated: 2023/02/27 17:29:11 by dkaratae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int mails = 0;
-pthread_mutex_t  mutex;
+pthread_mutex_t forks[NUM_FORKS];
+pthread_t ph[NUM_PHILOSOPHERS];
 
-void    ft_init_str(t_date *st, char **av, int ac)
+void    ft_init_str(t_rules *st, char **av, int ac)
 {
+    int philos;
+
+    philos = ft_atoi(av[1]);
     st->philosophers = ft_atoi(av[1]);
     st->time_die = ft_atoi(av[2]);
     st->time_eat = ft_atoi(av[3]);
@@ -25,134 +28,78 @@ void    ft_init_str(t_date *st, char **av, int ac)
         st->opt_arg = ft_atoi(av[5]);
     else
         st->opt_arg = -1;
+    st->ph[philos];
+    st->forks[];
 }
 
-// void    *philo(void *args)
-// {
-//     int *f = (int*)args;
-//     int i = *f;
-//     printf("Philo is eating %d\n", i);
-//     printf("end!\n");
-//     return (NULL);
-// }
-void    *philo()
+void    *philo(void *args)
 {
-    int i = -1;
-    pthread_mutex_lock(&mutex);
-    while (++i < 1000000)
-        mails++;
-    pthread_mutex_unlock(&mutex);
+    int id = *(int*)args;
+    int l_fork = id;
+    int r_fork = (id + 1) % NUM_FORKS;
+
+    while (1)
+    {
+        printf("Philo %d is thinking\n", id);
+
+        pthread_mutex_lock(&forks[l_fork]);
+        printf("Philo %d has taken a left fork %d\n", id, l_fork);
+        pthread_mutex_lock(&forks[r_fork]);
+        printf("Philo %d has taken a right fork %d\n", id, r_fork);
+        pthread_mutex_unlock(&forks[r_fork]);        
+        pthread_mutex_unlock(&forks[l_fork]);
+        usleep(10000);
+    }
     return (NULL);
 }
 
 int main(int ac, char **av)
 {
     int i;
-    t_date *st;
-    pthread_t *pt;
-    pthread_mutex_init(&mutex, NULL);
-    st = (t_date *)malloc(sizeof(t_date) + 1);
-    i = 0;
+    t_rules *rules = NULL;
+
     ft_checker(ac, av);
-    ft_init_str(st, av, ac);
-    pt = malloc(sizeof(pt) * st->philosophers);
-    while (i < st->philosophers)
+    ft_init_str(rules, av, ac);
+    i = -1;
+    while (++i < rules->philosophers)
+        pthread_mutex_init(&forks[i], NULL);
+    i = -1;
+    while (++i < rules->philosophers)
     {
-        pthread_create(&pt[i], NULL, &philo, NULL) ;
-        usleep(3);
-        i++;
+        pthread_create(&ph[i], NULL, &philo, &i);
     }
-    i = 0;
-    while (i < st->philosophers)
+    i = -1;
+    while (++i < rules->philosophers)
     {
-        pthread_join(pt[i], NULL);
-        i++;
+        pthread_join(ph[i], NULL);
     }
-    pthread_mutex_destroy(&mutex);
-    printf("Number of mails: %d\n", mails);
+    i = -1;
+    while (++i < rules->philosophers)
+        pthread_mutex_destroy(&forks[i]);
     return (0);
 }
-
-
-// +++++++++++++++++++++++++++++
-
-
-
-// long    get_time(void)
+// int main(int ac, char **av)
 // {
-//     struct timeval  tp;
-//     long            milliseconds;
+//     int i;
+//     // t_philo *st = NULL;
+//     t_rules *rules = NULL;
+//     pthread_t pt[ft_atoi(av[1])];
 
-//     gettimeofday(&tp, NULL);
-//     milliseconds = tp.tv_sec * 1000;
-//     milliseconds += tp.tv_usec / 1000;
-//     return (milliseconds);
-// }
-
-// void ft_my_sleep(long ms)
-// {
-//     struct timeval  now;
-//     long  start;
-
-// ();
-//     gettimeofday(&now, NULL);
-//     while (get_time() - start < ms)
+//     ft_checker(ac, av);
+//     rules = malloc(sizeof(t_rules) * ft_atoi(av[1]));
+//     ft_init_str(rules, av, ac);
+//     i = -1;
+//     while (++i < ft_atoi(av[1]))
 //     {
-//         usleep(100);
-//         gettimeofday(&now, NULL);
+//         pthread_create(&pt[i], NULL, &philo, &i) ;
 //     }
-// }
-
-// int main(void)
-// {
-//     long start_time;
-		
-//     start_time = get_time();
-
-//     while (1)
+//     i = -1;
+//     while (++i < ft_atoi(av[1]))
 //     {
-//         printf("%ld\n", get_time() - start_time);
-//         // usleep(200000);
-//         ft_my_sleep(500);
+//         pthread_join(pt[i], NULL);
 //     }
-// }
-// ++++++++++++++++++++++++++++++++++++++++
-
-// void ft_my_sleep(int ms)
-// {
-//     struct timeval  now;
-//     struct timeval  start;
-//     gettimeofday(&now, NULL);
-//     gettimeofday(&start, NULL);
-//     while ((((now.tv_sec - start.tv_sec) * 1000) + ((now.tv_usec - start.tv_usec) / 1000)) < ms)
-//     {
-//         usleep(100);
-//         gettimeofday(&now, NULL);
-//     }
+//     // pthread_mutex_destroy(&mutex);
+//     return (0);
 // }
 
 
-// long    get_time(void)
-// {
-//     struct timeval  tp;
-//     long            milliseconds;
-
-//     gettimeofday(&tp, NULL);
-//     milliseconds = tp.tv_sec * 1000;
-//     milliseconds += tp.tv_usec / 1000;
-//     return (milliseconds);
-// }
-
-// int main(void)
-// {
-//     long start_time;
-		
-//     start_time = get_time();
-
-//     while (1)
-//     {
-//         printf("%ld\n", get_time() - start_time);
-//         // usleep(200000);
-//         ft_my_sleep(500);
-//     }
-// }
