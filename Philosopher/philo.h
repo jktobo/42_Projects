@@ -6,7 +6,7 @@
 /*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 16:17:05 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/03/01 15:35:23 by dkaratae         ###   ########.fr       */
+/*   Updated: 2023/03/02 19:56:32 by dkaratae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,16 +31,18 @@ typedef	struct s_philo
 
 typedef	struct s_rules
 {
-	// pthread_mutex_t	mutex;
-	// int				id;
 	int				philosophers;
+	int				count_eat;
 	int				time_die;
 	int				time_eat;
 	int				time_sleep;
 	int				opt_arg;
+	int				must_die;
 	long			start_time;
+	long			last_eat;
 	pthread_t		*ph;
 	pthread_mutex_t *forks;
+	pthread_mutex_t print;
 	t_philo			*philo;
 } t_rules;
 
@@ -55,3 +57,4 @@ void	*ft_memset(void *s, int c, size_t n);
 long    get_time(void);
 long    print_get_time(t_philo *philo);
 void	ft_my_sleep(long ms);
+int		print_message(t_philo *philo, char c);

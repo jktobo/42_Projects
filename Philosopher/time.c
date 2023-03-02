@@ -6,7 +6,7 @@
 /*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 12:40:04 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/02/27 17:22:24 by dkaratae         ###   ########.fr       */
+/*   Updated: 2023/03/02 18:13:16 by dkaratae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,7 @@ long    get_time(void)
 }
 long    print_get_time(t_philo *philo)
 {
-    struct timeval  tm;
-    long            milliseconds;
-
-    gettimeofday(&tm, NULL);
-    milliseconds = tm.tv_sec * 1000;
-    milliseconds += tm.tv_usec / 1000;
-    return (milliseconds - philo->test2->start_time);
+    return (get_time() - philo->test2->start_time);
 }
 
 void ft_my_sleep(long ms)
