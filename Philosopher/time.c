@@ -14,13 +14,23 @@
 
 long    get_time(void)
 {
-    struct timeval  tp;
+    struct timeval  tm;
     long            milliseconds;
 
-    gettimeofday(&tp, NULL);
-    milliseconds = tp.tv_sec * 1000;
-    milliseconds += tp.tv_usec / 1000;
+    gettimeofday(&tm, NULL);
+    milliseconds = tm.tv_sec * 1000;
+    milliseconds += tm.tv_usec / 1000;
     return (milliseconds);
+}
+long    print_get_time(t_philo *philo)
+{
+    struct timeval  tm;
+    long            milliseconds;
+
+    gettimeofday(&tm, NULL);
+    milliseconds = tm.tv_sec * 1000;
+    milliseconds += tm.tv_usec / 1000;
+    return (milliseconds - philo->test2->start_time);
 }
 
 void ft_my_sleep(long ms)
@@ -32,7 +42,7 @@ void ft_my_sleep(long ms)
     gettimeofday(&now, NULL);
     while (get_time() - start < ms)
     {
-        usleep(10);
+        usleep(50);
         gettimeofday(&now, NULL);
     }
 }

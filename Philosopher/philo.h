@@ -32,19 +32,16 @@ typedef	struct s_philo
 typedef	struct s_rules
 {
 	// pthread_mutex_t	mutex;
-	int				id;
+	// int				id;
 	int				philosophers;
 	int				time_die;
 	int				time_eat;
 	int				time_sleep;
 	int				opt_arg;
 	long			start_time;
-	int				*arr;
 	pthread_t		*ph;
 	pthread_mutex_t *forks;
 	t_philo			*philo;
-	// pthread_t		ph[250];
-	// pthread_mutex_t forks[250];
 } t_rules;
 
 void    ft_error(void);
@@ -53,6 +50,8 @@ void	ft_checker(int ac, char **av);
 void    ft_init_str(t_rules *st, char **av, int ac);
 
 int		ft_atoi(const char *str);
+void	*ft_memset(void *s, int c, size_t n);
 
 long    get_time(void);
+long    print_get_time(t_philo *philo);
 void	ft_my_sleep(long ms);
