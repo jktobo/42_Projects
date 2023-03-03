@@ -6,7 +6,7 @@
 /*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 16:17:05 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/03/02 19:56:32 by dkaratae         ###   ########.fr       */
+/*   Updated: 2023/03/03 15:11:34 by dkaratae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,23 +23,22 @@ struct s_rules;
 typedef	struct s_philo
 {
 	int				id;
-	int				last_time_eat;
 	int				left_fork;
 	int				right_fork;
+	int				count_eat;
+	size_t			last_eat;
 	struct s_rules	*test2;
 } t_philo;
 
 typedef	struct s_rules
 {
 	int				philosophers;
-	int				count_eat;
 	int				time_die;
 	int				time_eat;
 	int				time_sleep;
 	int				opt_arg;
 	int				must_die;
-	long			start_time;
-	long			last_eat;
+	size_t			start_time;
 	pthread_t		*ph;
 	pthread_mutex_t *forks;
 	pthread_mutex_t print;

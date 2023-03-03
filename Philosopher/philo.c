@@ -6,7 +6,7 @@
 /*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 11:29:49 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/03/02 21:32:28 by dkaratae         ###   ########.fr       */
+/*   Updated: 2023/03/03 16:28:07 by dkaratae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@ void    ft_init_str(t_rules *st, char **av, int ac)
     else
         st->opt_arg = -1;
     pthread_mutex_init(&st->print, NULL);
-    st->count_eat = 0;
-    st->last_eat = 0;
     st->must_die = 0;
 }
 
@@ -39,9 +37,10 @@ int print_message(t_philo *philo, char c)
     else if (c == 'e')
     {
         printf("%ld %d is eating\n", print_get_time(philo), philo->id);
-        philo->test2->last_eat = get_time();
-        printf("%d - TIME = %ld\n", philo->id, philo->test2->last_eat);
-        philo->test2->count_eat++;
+        philo->last_eat = get_time();
+        // philo->last_eat = get_time() - philo->test2->start_time;
+        // printf("last eat in print_message =  %ld\n", philo->last_eat);
+        philo->count_eat++;
     }
     else if (c == 's')
     {
@@ -55,28 +54,34 @@ int print_message(t_philo *philo, char c)
 
 void    *philo(void *args)
 {
-    t_philo philo = *(t_philo*)args;
-    philo.right_fork = philo.id;
-    philo.left_fork = (philo.id + 1) % philo.test2->philosophers;
+    t_philo *philo = (t_philo *)args;
+    philo->right_fork = philo->id;
+    philo->left_fork = (philo->id + 1) % philo->test2->philosophers;
 
-    // if (philo.id % 2 == 0)
-    //     ft_my_sleep(25);
+    if (philo->id % 2 == 0)
+        ft_my_sleep(25);
     while (1)
     {
-        pthread_mutex_lock(&philo.test2->forks[philo.right_fork]);
-        print_message(&philo, 'r');
-        pthread_mutex_lock(&philo.test2->forks[philo.left_fork]);
+        if (philo->test2->must_die == 1)
+            return (0);
+        pthread_mutex_lock(&philo->test2->forks[philo->right_fork]);
+        print_message(philo, 'r');
+        pthread_mutex_lock(&philo->test2->forks[philo->left_fork]);
         
-        print_message(&philo, 'l');
-        print_message(&philo, 'e');
-        ft_my_sleep(philo.test2->time_eat);
+        if (philo->test2->must_die == 1)
+            return (0);
+        print_message(philo, 'l');
+        print_message(philo, 'e');
+        ft_my_sleep(philo->test2->time_eat);
         
-        pthread_mutex_unlock(&philo.test2->forks[philo.right_fork]);
-        pthread_mutex_unlock(&philo.test2->forks[philo.left_fork]);
+        pthread_mutex_unlock(&philo->test2->forks[philo->right_fork]);
+        pthread_mutex_unlock(&philo->test2->forks[philo->left_fork]);
 
-        print_message(&philo, 's');
-        ft_my_sleep(philo.test2->time_sleep);
-        print_message(&philo, 't');
+        if (philo->test2->must_die == 1)
+            return (0);
+        print_message(philo, 's');
+        ft_my_sleep(philo->test2->time_sleep);
+        print_message(philo, 't');
     }
     return (NULL);
 }
@@ -95,19 +100,38 @@ void *ft_memset(void *s, int c, size_t n)
     return (s);
 }
 
+// int is_died(t_rules *rules)
 int is_died(t_rules *rules)
 {
     int i;
     
     i = 0;
-    while (rules->philo)
+    // while (rules->philo)
+    // usleep(1000);
+    while (!rules->must_die)
     {
-        long sum;
-
-        sum = rules->last_eat - get_time();
-        if (sum > rules->time_die)
+        size_t sum;
+        pthread_mutex_lock(&rules->print);
+        sum = get_time() - rules->philo[i].last_eat;
+        if (rules->philo[i].last_eat == 0)
+        {
+            pthread_mutex_unlock(&rules->print);
+            // i++;
+            if (i == rules->philosophers)
+                i = 0;
+            continue;
+        }
+        pthread_mutex_unlock(&rules->print);
+        pthread_mutex_lock(&rules->print);
+        if (sum > (size_t)rules->philo[i].test2->time_die) {
+            
+            pthread_mutex_unlock(&rules->print);
             return (1);
+        }
+        pthread_mutex_unlock(&rules->print);
         i++;
+        if (i == rules->philosophers)
+            i = 0;
     }
     return (0);
 }
@@ -130,22 +154,29 @@ int main(int ac, char **av)
     i = -1;
     rules.start_time = get_time();
     while (++i < rules.philosophers) {
+        // bzero(&rules.philo[i], sizeof(t_philo));
         rules.philo[i].id = i;
         rules.philo[i].test2 = &rules;
+        rules.philo[i].last_eat = 0;
         pthread_create(&rules.ph[i], NULL, &philo, &rules.philo[i]);
     }
+    // usleep(1000000);
     while (1)
-    {
+    {       
         if (is_died(&rules) == 1)
         {
             rules.must_die = 1;
             i = -1;
             while (++i < rules.philosophers)
                 pthread_join(rules.ph[i], NULL);
+            printf("someone died\n");
             break;
         }
     }
     
+    // i = -1;
+    // while (++i < rules.philosophers)
+    //     pthread_join(rules.ph[i], NULL);
     i = -1;
     while (++i < rules.philosophers)
         pthread_mutex_destroy(&rules.forks[i]);

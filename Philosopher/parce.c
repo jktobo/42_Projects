@@ -6,7 +6,7 @@
 /*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 13:32:55 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/02/18 13:33:47 by dkaratae         ###   ########.fr       */
+/*   Updated: 2023/03/03 14:53:58 by dkaratae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,9 @@ int ft_check_digit(char **av)
 
 void ft_checker(int ac, char **av)
 {
-    int i;
+    // int i;
 
-    i = -1;
+    // i = -1;
     if (!(ac == 5 || ac == 6))
         ft_error();
     else if (ft_check_digit(av))
