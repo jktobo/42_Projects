@@ -6,7 +6,7 @@
 /*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 16:17:05 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/03/03 21:27:51 by dkaratae         ###   ########.fr       */
+/*   Updated: 2023/03/03 22:20:02 by dkaratae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,21 +39,36 @@ typedef	struct s_rules
 	int				opt_arg;
 	int				must_die;
 	size_t			start_time;
-	pthread_t		*ph;
-	pthread_mutex_t *forks;
-	pthread_mutex_t print;
-	t_philo			*philo;
+	pthread_t		ph[250];
+	pthread_mutex_t forks[250];
+	pthread_mutex_t m_print;
+	t_philo			philo[250];
 } t_rules;
 
-void    ft_error(void);
-int		ft_check_digit(char **av); 
-void	ft_checker(int ac, char **av);
-void    ft_init_str(t_rules *st, char **av, int ac);
 
+/* philo.c */
+int		print_message(t_philo *philo, char c);
+void    *philo(void *args);
+int		is_died(t_rules *rules);
+
+/* init.c */
+void    init_rules(t_rules *st, char **av, int ac);
+void	init_philo(t_rules *rules);
+
+/* philo_utils.c */
 int		ft_atoi(const char *str);
 void	*ft_memset(void *s, int c, size_t n);
 
+/* time.c */
 long    get_time(void);
 long    print_get_time(t_philo *philo);
 void	ft_my_sleep(long ms);
-int		print_message(t_philo *philo, char c);
+
+/* parce.c */
+void    ft_error(void);
+int		ft_isdigit(int c);
+int		ft_checker(int ac, char **av);
+
+/* check.c */
+int		check_died(t_philo *philo);
+int		is_died(t_rules *rules);
