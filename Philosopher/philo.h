@@ -6,7 +6,7 @@
 /*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 16:17:05 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/03/03 22:20:02 by dkaratae         ###   ########.fr       */
+/*   Updated: 2023/03/05 17:54:35 by dkaratae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef	struct s_philo
 	int				left_fork;
 	int				right_fork;
 	int				count_eat;
+	int				flag_opt;
 	size_t			last_eat;
 	struct s_rules	*test2;
 } t_philo;
@@ -62,7 +63,7 @@ void	*ft_memset(void *s, int c, size_t n);
 /* time.c */
 long    get_time(void);
 long    print_get_time(t_philo *philo);
-void	ft_my_sleep(long ms);
+int		ft_my_sleep(t_philo *philo, long ms);
 
 /* parce.c */
 void    ft_error(void);

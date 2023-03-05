@@ -6,7 +6,7 @@
 /*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 21:33:46 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/03/03 21:35:06 by dkaratae         ###   ########.fr       */
+/*   Updated: 2023/03/05 17:55:09 by dkaratae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void	init_philo(t_rules *rules)
 		rules->philo[i].id = i;
         rules->philo[i].count_eat = 0;
 		rules->philo[i].last_eat = 0;
+		rules->philo[i].flag_opt = 0;
         rules->philo[i].right_fork = i;
         rules->philo[i].left_fork = (i + 1) % rules->philosophers;
 		rules->philo[i].test2 = rules;
