@@ -27,10 +27,13 @@ int print_message(t_philo *philo, char c)
         philo->last_eat = get_time();
         if (philo->test2->opt_arg != -1)
         {
+			printf("PH: %d  meals: %d\n",philo->id, philo->count_eat);
             philo->count_eat++;
             // if (philo->count_eat == philo->test2->opt_arg)
             // {
-            //     philo->flag_eat_full = 1;
+            //     // philo->flag_eat_full = 1;
+            //     pthread_mutex_unlock(&philo->test2->m_print);
+            //     return (0);
             // }
             // if (philo->flag_eat_full == 0)
             // {
@@ -95,34 +98,30 @@ int main(int ac, char **av)
     rules.start_time = get_time();
     i = -1;
     while (++i < rules.philosophers)
-        pthread_create(&rules.ph[i], NULL, &philo, &rules.philo[i]);
-        
+        pthread_create(&rules.ph[i], NULL, &philo, &rules.philo[i]);  
+    i = -1;
+    while (++i < rules.philosophers)
+		pthread_detach(rules.ph[i]);
     while (1)
     {
         i = 0;
+		int	temp = 0;
         while (i < rules.philosophers)
         {
-            if (rules.philo[i].count_eat >= rules.opt_arg)
-                i++;
-            else
-                break;
-            if (i == rules.philosophers - 1)
-            {
-                i = -1;
-                while (++i < rules.philosophers)
-                    pthread_join(rules.ph[i], NULL);
-                break;
-            }
+            if (rules.philo[i].count_eat >= rules.opt_arg + 1)
+                temp++;
+            i++;
         }
-        if (is_died(&rules) == 1)
-        {
-            rules.must_die = 1;
-            i = -1;
-            while (++i < rules.philosophers)
-                pthread_join(rules.ph[i], NULL);
-            break;
-        }
-        
+        if (temp == rules.philosophers)
+			break;
+        // if (is_died(&rules) == 1)
+        // {
+        //     rules.must_die = 1;
+        //     i = -1;
+        //     while (++i < rules.philosophers)
+        //         pthread_join(rules.ph[i], NULL);
+        //     break;
+        // }
     }
     i = -1;
     while (++i < rules.philosophers)
