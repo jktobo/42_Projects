@@ -6,7 +6,7 @@
 /*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 16:17:05 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/03/06 15:57:45 by dkaratae         ###   ########.fr       */
+/*   Updated: 2023/03/07 03:04:46 by dkaratae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ typedef	struct s_philo
 	int				count_eat;
 	int				flag_eat_full;
 	size_t			last_eat;
-	struct s_rules	*test2;
+	struct s_rules	*st_rul;
 } t_philo;
 
 typedef	struct s_rules
@@ -49,7 +49,14 @@ typedef	struct s_rules
 
 
 /* philo.c */
-int		print_message(t_philo *philo, char c);
+// int		print_message(t_philo *philo, char c);
+void    t_printf(char *str, t_rules *rules);
+int		ft_print_fork(t_rules *rules);
+int		ft_print_eat(t_rules *rules);
+int		ft_print_sleep(t_rules *rules);
+int		ft_print_think(t_rules *rules);
+int		ft_print_died(t_rules *rules);
+
 void    *philo(void *args);
 int		is_died(t_rules *rules);
 

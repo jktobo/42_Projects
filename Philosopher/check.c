@@ -6,7 +6,7 @@
 /*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 21:51:24 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/03/03 22:19:54 by dkaratae         ###   ########.fr       */
+/*   Updated: 2023/03/07 03:06:39 by dkaratae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	check_died(t_philo *philo)
 {
-	if (philo->test2->must_die == 1)
+	if (philo->st_rul->must_die == 1)
         {
-            print_message(philo, 'd');
+            ft_print_died(philo->st_rul);
             return (1);
         }
 	return (0);
@@ -41,7 +41,7 @@ int is_died(t_rules *rules)
         }
         pthread_mutex_unlock(&rules->m_print);
         pthread_mutex_lock(&rules->m_print);
-        if (sum > (size_t)rules->philo[i].test2->time_die) {
+        if (sum > (size_t)rules->philo[i].st_rul->time_die) {
             
             pthread_mutex_unlock(&rules->m_print);
             return (1);

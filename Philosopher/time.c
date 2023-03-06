@@ -6,7 +6,7 @@
 /*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 12:40:04 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/03/05 17:23:28 by dkaratae         ###   ########.fr       */
+/*   Updated: 2023/03/07 02:56:16 by dkaratae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ long    get_time(void)
 }
 long    print_get_time(t_philo *philo)
 {
-    return (get_time() - philo->test2->start_time);
+    return (get_time() - philo->st_rul->start_time);
 }
 
 int ft_my_sleep(t_philo *philo, long ms)
