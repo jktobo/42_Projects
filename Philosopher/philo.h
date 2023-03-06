@@ -6,7 +6,7 @@
 /*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 16:17:05 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/03/05 17:54:35 by dkaratae         ###   ########.fr       */
+/*   Updated: 2023/03/06 15:57:45 by dkaratae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ typedef	struct s_philo
 	int				left_fork;
 	int				right_fork;
 	int				count_eat;
-	int				flag_opt;
+	int				flag_eat_full;
 	size_t			last_eat;
 	struct s_rules	*test2;
 } t_philo;
@@ -38,6 +38,7 @@ typedef	struct s_rules
 	int				time_eat;
 	int				time_sleep;
 	int				opt_arg;
+	int				flag_opt;
 	int				must_die;
 	size_t			start_time;
 	pthread_t		ph[250];

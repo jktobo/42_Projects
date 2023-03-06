@@ -6,7 +6,7 @@
 /*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 11:29:49 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/03/05 20:35:18 by dkaratae         ###   ########.fr       */
+/*   Updated: 2023/03/06 16:23:29 by dkaratae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,14 @@ int print_message(t_philo *philo, char c)
         if (philo->test2->opt_arg != -1)
         {
             philo->count_eat++;
-            if (philo->count_eat == philo->test2->opt_arg)
-			{
-                philo->flag_opt = 1;
-				printf("FF%d FLAG_OPT %d\n", philo->id, philo->test2->opt_arg);
-			}
+            // if (philo->count_eat == philo->test2->opt_arg)
+            // {
+            //     philo->flag_eat_full = 1;
+            // }
+            // if (philo->flag_eat_full == 0)
+            // {
+            //     philo->test2->flag_opt += 1;
+            // }
         }
     }
     else if (c == 's')
@@ -93,17 +96,24 @@ int main(int ac, char **av)
     i = -1;
     while (++i < rules.philosophers)
         pthread_create(&rules.ph[i], NULL, &philo, &rules.philo[i]);
+        
     while (1)
     {
         i = 0;
-        while (rules.philo[i].flag_opt == 1)
+        while (i < rules.philosophers)
         {
-			printf("SF%d FLAG_OPT %d\n", rules.philo[i].id, rules.philo[i].flag_opt);
-			// printf("OKKKK!\n");
-        	i++;
+            if (rules.philo[i].count_eat >= rules.opt_arg)
+                i++;
+            else
+                break;
+            if (i == rules.philosophers - 1)
+            {
+                i = -1;
+                while (++i < rules.philosophers)
+                    pthread_join(rules.ph[i], NULL);
+                break;
+            }
         }
-        if (rules.philosophers == i)
-            rules.must_die = 1;
         if (is_died(&rules) == 1)
         {
             rules.must_die = 1;
@@ -112,6 +122,7 @@ int main(int ac, char **av)
                 pthread_join(rules.ph[i], NULL);
             break;
         }
+        
     }
     i = -1;
     while (++i < rules.philosophers)
