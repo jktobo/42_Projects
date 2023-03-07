@@ -6,7 +6,7 @@
 /*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 16:17:05 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/03/07 03:04:46 by dkaratae         ###   ########.fr       */
+/*   Updated: 2023/03/07 03:55:21 by dkaratae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,15 +44,15 @@ typedef	struct s_rules
 	pthread_t		ph[250];
 	pthread_mutex_t forks[250];
 	pthread_mutex_t m_print;
+	pthread_mutex_t	last_meal_mutex;
 	t_philo			philo[250];
 } t_rules;
 
 
 /* philo.c */
 // int		print_message(t_philo *philo, char c);
-void    t_printf(char *str, t_rules *rules);
-int		ft_print_fork(t_rules *rules);
-int		ft_print_eat(t_rules *rules);
+void    t_printf(char *str, t_rules *rules, t_philo *philo);
+int 	ft_print_eat(t_rules *rules, t_philo *philo);
 int		ft_print_sleep(t_rules *rules);
 int		ft_print_think(t_rules *rules);
 int		ft_print_died(t_rules *rules);

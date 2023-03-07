@@ -6,7 +6,7 @@
 /*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 21:51:24 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/03/07 03:06:39 by dkaratae         ###   ########.fr       */
+/*   Updated: 2023/03/07 03:49:12 by dkaratae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	check_died(t_philo *philo)
 {
 	if (philo->st_rul->must_die == 1)
         {
-            ft_print_died(philo->st_rul);
+            printf("deade\n");
             return (1);
         }
 	return (0);
