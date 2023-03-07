@@ -6,7 +6,7 @@
 /*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 16:58:03 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/02/18 10:13:46 by dkaratae         ###   ########.fr       */
+/*   Updated: 2023/03/03 21:37:19 by dkaratae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,18 @@ int	ft_atoi(const char *str)
 		str++;
 	}
 	return (minus * res);
+}
+
+void *ft_memset(void *s, int c, size_t n)
+{
+    size_t i;
+    unsigned char *p;
+    unsigned char ch;
+
+    i = -1;
+    p = s;
+    ch = c;
+    while (++i < n)
+        p[i] = ch;
+    return (s);
 }

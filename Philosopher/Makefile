@@ -6,7 +6,7 @@
 #    By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/16 16:17:16 by dkaratae          #+#    #+#              #
-#    Updated: 2023/03/03 14:54:17 by dkaratae         ###   ########.fr        #
+#    Updated: 2023/03/06 13:45:28 by dkaratae         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,8 @@ FILES = 	philo.c \
 			philo_utils.c \
 			parce.c \
 			time.c \
+			init.c \
+			check.c \
 
 OBJS	=	$(FILES:%c=%o)
 

@@ -6,7 +6,7 @@
 /*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 12:40:04 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/03/03 08:13:42 by dkaratae         ###   ########.fr       */
+/*   Updated: 2023/03/07 19:11:46 by dkaratae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,33 +24,19 @@ long    get_time(void)
 }
 long    print_get_time(t_philo *philo)
 {
-    return (get_time() - philo->test2->start_time);
+    return (get_time() - philo->st_rul->start_time);
 }
 
-void ft_my_sleep(long ms)
+int ft_my_sleep(t_philo *philo, long ms)
 {
-    struct timeval  now;
     long  start;
 
     start = get_time();
-    gettimeofday(&now, NULL);
     while (get_time() - start < ms)
     {
+        if (check_died(philo) == 1)
+            return (1);
         usleep(50);
-        gettimeofday(&now, NULL);
     }
+    return (0);
 }
-
-// int main(void)
-// {
-//     long start_time;
-		
-//     start_time = get_time();
-
-//     while (1)
-//     {
-//         printf("%ld\n", get_time() - start_time);
-//         // usleep(200000);
-//         ft_my_sleep(200);
-//     }
-// }
