@@ -6,7 +6,7 @@
 /*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 16:17:05 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/03/07 14:24:55 by dkaratae         ###   ########.fr       */
+/*   Updated: 2023/03/09 19:55:13 by dkaratae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,22 +42,24 @@ typedef	struct s_rules
 	int				must_die;
 	size_t			start_time;
 	pthread_t		ph[250];
+	pthread_t		death_thread;
 	pthread_mutex_t m_forks[250];
 	pthread_mutex_t m_print;
+	pthread_mutex_t	m_lastmeal;
 	pthread_mutex_t m_count;
+	pthread_mutex_t	m_death;
 	t_philo			philo[250];
 } t_rules;
 
-
+long last_eat_check(t_rules *rules, int i);
 /* philo.c */
 void	t_printf(char *str, t_rules *rules, t_philo *philo);
-int		ft_print_fork(t_rules *rules);
-int		ft_print_eat(t_rules *rules, t_philo *philo);
 int		ft_print_sleep(t_rules *rules, t_philo *philo);
 int		ft_print_think(t_rules *rules, t_philo *philo);
 int		ft_print_died(t_rules *rules, t_philo *philo);
 
 void    *philo(void *args);
+void	*death_check(void *arg);
 int		is_died(t_rules *rules);
 
 /* init.c */
@@ -80,4 +82,5 @@ int		ft_checker(int ac, char **av);
 
 /* check.c */
 int		check_died(t_philo *philo);
-int		is_died(t_rules *rules);
+// int		is_died(t_rules *rules);
+int		check_death_true(t_philo *philo);

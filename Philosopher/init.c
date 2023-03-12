@@ -6,7 +6,7 @@
 /*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 21:33:46 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/03/07 14:01:34 by dkaratae         ###   ########.fr       */
+/*   Updated: 2023/03/09 16:52:36 by dkaratae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ void    init_rules(t_rules *st, char **av, int ac)
         st->opt_arg = -1;
     pthread_mutex_init(&st->m_print, NULL);
     pthread_mutex_init(&st->m_count, NULL);
+    pthread_mutex_init(&st->m_death, NULL);
+    pthread_mutex_init(&st->m_lastmeal, NULL);
     st->must_die = 0;
     st->start_time = 0;
     st->flag_opt = 0;

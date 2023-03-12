@@ -6,7 +6,7 @@
 /*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 12:40:04 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/03/07 19:11:46 by dkaratae         ###   ########.fr       */
+/*   Updated: 2023/03/09 19:57:18 by dkaratae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,12 @@ long    print_get_time(t_philo *philo)
 int ft_my_sleep(t_philo *philo, long ms)
 {
     long  start;
-
+    (void)philo;
     start = get_time();
     while (get_time() - start < ms)
     {
-        if (check_died(philo) == 1)
-            return (1);
+        if (check_death_true(philo) == 1)
+            exit(1);
         usleep(50);
     }
     return (0);
