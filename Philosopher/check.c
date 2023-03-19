@@ -6,116 +6,40 @@
 /*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 21:51:24 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/03/09 19:44:03 by dkaratae         ###   ########.fr       */
+/*   Updated: 2023/03/19 19:16:26 by dkaratae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int check_death_true(t_philo *philo)
+void	t_printf(char *str, t_rules *rules, t_philo *philo)
 {
-    int value;
-
-	pthread_mutex_lock(&philo->st_rul->m_death);
-    value = philo->st_rul->must_die;
-	pthread_mutex_unlock(&philo->st_rul->m_death);
-    return (value);
+	if (!rules->is_run)
+		return ;
+	pthread_mutex_lock(&rules->print);
+	printf("%ld %d %s\n", print_get_time(philo), philo->id, str);
+	pthread_mutex_unlock(&rules->print);
 }
 
-// int	check_died(t_philo *philo)
-// {
-//     if (check_death_true(philo) == 1)
-//     {
-//         pthread_mutex_lock(&philo->st_rul->m_death);
-//         ft_print_died(philo->st_rul, philo);
-//         philo->st_rul->must_die = 1;
-//         pthread_mutex_unlock(&philo->st_rul->m_death);
-//         return (1);
-//     }
-// 	return (0);
-// }
-
-// int	check_died(t_philo *philo)
-// {
-// 	int flag;
-
-// 	flag = 0;
-// 	if (flag == 0)
-// 	{
-// 		if (philo->st_rul->must_die == 1)
-// 		{
-// 			pthread_mutex_lock(&philo->st_rul->m_count);
-// 			ft_print_died(philo->st_rul, philo);
-// 			flag = 1;
-// 		    pthread_mutex_unlock(&philo->st_rul->m_count);
-// 			return (1);
-// 		}
-// 	}
-// 	return (0);
-// }
-
-
-int ft_check_must_eat(t_rules *rules)
+int	ft_check_count_eat(t_philo *philo)
 {
-    int i;
-    int	temp;
-    i = 0;
-    temp = 0;
-    while (i < rules->philosophers)
-    {
-        if (rules->philo[i].count_eat >= rules->opt_arg)
-            temp++;
-        i++;
-    }
-    if (temp == rules->philosophers)
+	if (philo->count_eat == philo->st_rul->opt_arg)
 	{
-        return (1);
+		philo->ate = 1;
+		philo->st_rul->count_ate++;
+		return (1);
 	}
-    return (0);
+	return (0);
 }
 
-long last_eat_check(t_rules *rules, int i)
+int	ft_check_time_died(t_rules *rules, int i)
 {
-    long value;
-    pthread_mutex_lock(&rules->m_lastmeal);
-    value = rules->philo[i].last_eat;
-    pthread_mutex_unlock(&rules->m_lastmeal);
-    return (value);
+	if (!rules->philo[i].ate && \
+		(get_time() - rules->philo[i].last_eat) > rules->time_t_die)
+	{
+		t_printf("died", rules, &rules->philo[i]);
+		rules->is_run = 0;
+		return (1);
+	}
+	return (0);
 }
-
-// int is_died(t_rules *rules)
-// {
-//     int i;
-//     long long sum;
-    
-//     i = 0;
-//     while (!check_death_true(rules))
-//     {
-// 		if (ft_check_must_eat(rules) == 1 && rules->opt_arg != -1)
-//             return (2);
-//         pthread_mutex_lock(&rules->m_print);
-//         pthread_mutex_lock(&rules->m_lastmeal);
-//         sum = get_time() - rules->philo[i].last_eat;
-//         pthread_mutex_unlock(&rules->m_lastmeal);
-//         printf("%ld\n", rules->philo[i].last_eat);
-//         // if (rules->philo[i].last_eat == 0)
-//         // {
-//         //     pthread_mutex_unlock(&rules->m_print);
-//         //     if (i == rules->philosophers)
-//         //         i = 0;
-//         //     continue ;
-//         // }
-//         pthread_mutex_unlock(&rules->m_print);
-//         pthread_mutex_lock(&rules->m_print);
-//         if (sum > rules->philo[i].st_rul->time_die)
-//         {    
-//             pthread_mutex_unlock(&rules->m_print);
-//             return (1);
-//         }
-//         pthread_mutex_unlock(&rules->m_print);
-//         i++;
-//         if (i == rules->philosophers)
-//             i = 0;
-//     }
-//     return (0);
-// }

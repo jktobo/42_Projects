@@ -6,7 +6,7 @@
 /*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 16:58:03 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/03/03 21:37:19 by dkaratae         ###   ########.fr       */
+/*   Updated: 2023/03/19 19:30:04 by dkaratae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,16 +37,31 @@ int	ft_atoi(const char *str)
 	return (minus * res);
 }
 
-void *ft_memset(void *s, int c, size_t n)
+void	take_forks(t_rules *rules, t_philo *philo)
 {
-    size_t i;
-    unsigned char *p;
-    unsigned char ch;
+	pthread_mutex_lock(&rules->forks[philo->l_fork]);
+	t_printf("has taken a fork", rules, philo);
+	pthread_mutex_lock(&rules->forks[philo->r_fork]);
+	t_printf("has taken a fork", rules, philo);
+}
 
-    i = -1;
-    p = s;
-    ch = c;
-    while (++i < n)
-        p[i] = ch;
-    return (s);
+void	ft_eats(t_rules *rules, t_philo *philo)
+{
+	t_printf("is eating", rules, philo);
+	philo->count_eat++;
+	philo->last_eat = get_time();
+	ft_my_sleep(rules->time_t_eat);
+	pthread_mutex_unlock(&rules->forks[philo->l_fork]);
+	pthread_mutex_unlock(&rules->forks[philo->r_fork]);
+}
+
+void	ft_sleep(t_rules *rules, t_philo *philo)
+{
+	t_printf("is sleeping", rules, philo);
+	ft_my_sleep(rules->time_t_sleep);
+}
+
+void	ft_think(t_rules *rules, t_philo *philo)
+{
+	t_printf("is thinking", rules, philo);
 }

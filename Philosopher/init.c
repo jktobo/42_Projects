@@ -6,44 +6,50 @@
 /*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 21:33:46 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/03/09 16:52:36 by dkaratae         ###   ########.fr       */
+/*   Updated: 2023/03/19 19:18:36 by dkaratae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void    init_rules(t_rules *st, char **av, int ac)
+void	ft_init_rules(t_rules *rules, int ac, char **av)
 {
-    st->philosophers = ft_atoi(av[1]);
-    st->time_die = ft_atoi(av[2]);
-    st->time_eat = ft_atoi(av[3]);
-    st->time_sleep = ft_atoi(av[4]);
-    if (ac == 6)
-        st->opt_arg = ft_atoi(av[5]);
-    else
-        st->opt_arg = -1;
-    pthread_mutex_init(&st->m_print, NULL);
-    pthread_mutex_init(&st->m_count, NULL);
-    pthread_mutex_init(&st->m_death, NULL);
-    pthread_mutex_init(&st->m_lastmeal, NULL);
-    st->must_die = 0;
-    st->start_time = 0;
-    st->flag_opt = 0;
+	rules->count_phil = ft_atoi(av[1]);
+	rules->time_t_die = ft_atoi(av[2]);
+	rules->time_t_eat = ft_atoi(av[3]);
+	rules->time_t_sleep = ft_atoi(av[4]);
+	if (ac == 6)
+		rules->opt_arg = ft_atoi(av[5]);
+	else
+		rules->opt_arg = -1;
+	rules->count_ate = 0;
+	rules->is_run = 1;
+	rules->start_time = 0;
 }
 
-void	init_philo(t_rules *rules)
+void	ft_init_mutex(t_rules *rules)
 {
-	int i;
+	int	i;
 
 	i = -1;
-	while (++i < rules->philosophers)
+	while (++i < rules->count_phil)
+		pthread_mutex_init(&rules->forks[i], NULL);
+	pthread_mutex_init(&rules->print, NULL);
+}
+
+void	ft_init_philo(t_rules *rules)
+{
+	int	i;
+
+	i = -1;
+	while (++i < rules->count_phil)
 	{
-		rules->philo[i].id = i;
-        rules->philo[i].count_eat = 0;
+		rules->philo[i].id = i + 1;
+		rules->philo[i].r_fork = i;
+		rules->philo[i].l_fork = (i + 1) % rules->count_phil;
+		rules->philo[i].count_eat = 0;
+		rules->philo[i].ate = 0;
 		rules->philo[i].last_eat = 0;
-		rules->philo[i].flag_eat_full = 0;
-        rules->philo[i].right_fork = i;
-        rules->philo[i].left_fork = (i + 1) % rules->philosophers;
 		rules->philo[i].st_rul = rules;
 	}
 }

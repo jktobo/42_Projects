@@ -6,81 +6,79 @@
 /*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 16:17:05 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/03/09 19:55:13 by dkaratae         ###   ########.fr       */
+/*   Updated: 2023/03/19 19:29:43 by dkaratae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <unistd.h>
-#include <sys/time.h>
-#include <pthread.h>
-#include <stdlib.h>
+#ifndef PHILO_H
+# define PHILO_H
 
-struct s_rules;
-#define NUM_PHILOSOPHERS 10
-#define NUM_FORKS 10
+# include <stdio.h>
+# include <unistd.h>
+# include <sys/time.h>
+# include <pthread.h>
+# include <stdlib.h>
 
-typedef	struct s_philo
+struct	s_rules;
+
+typedef struct s_philo
 {
 	int				id;
-	int				left_fork;
-	int				right_fork;
+	int				l_fork;
+	int				r_fork;
 	int				count_eat;
-	int				flag_eat_full;
-	size_t			last_eat;
+	int				ate;
+	long			last_eat;
 	struct s_rules	*st_rul;
-} t_philo;
+}	t_philo;
 
-typedef	struct s_rules
+typedef struct s_rules
 {
-	int				philosophers;
-	int				time_die;
-	int				time_eat;
-	int				time_sleep;
+	int				count_phil;
+	int				time_t_die;
+	int				time_t_eat;
+	int				time_t_sleep;
 	int				opt_arg;
-	int				flag_opt;
-	int				must_die;
-	size_t			start_time;
+	int				count_ate;
+	int				is_run;
+	long			start_time;
 	pthread_t		ph[250];
-	pthread_t		death_thread;
-	pthread_mutex_t m_forks[250];
-	pthread_mutex_t m_print;
-	pthread_mutex_t	m_lastmeal;
-	pthread_mutex_t m_count;
-	pthread_mutex_t	m_death;
+	pthread_mutex_t	forks[250];
 	t_philo			philo[250];
-} t_rules;
+	pthread_mutex_t	print;
+}	t_rules;
 
-long last_eat_check(t_rules *rules, int i);
-/* philo.c */
+/* check.c */
 void	t_printf(char *str, t_rules *rules, t_philo *philo);
-int		ft_print_sleep(t_rules *rules, t_philo *philo);
-int		ft_print_think(t_rules *rules, t_philo *philo);
-int		ft_print_died(t_rules *rules, t_philo *philo);
-
-void    *philo(void *args);
-void	*death_check(void *arg);
-int		is_died(t_rules *rules);
+int		ft_check_count_eat(t_philo *philo);
+int		ft_check_time_died(t_rules *rules, int i);
 
 /* init.c */
-void    init_rules(t_rules *st, char **av, int ac);
-void	init_philo(t_rules *rules);
+void	ft_init_rules(t_rules *rules, int ac, char **av);
+void	ft_init_mutex(t_rules *rules);
+void	ft_init_philo(t_rules *rules);
+
+/* parce.c */
+void	ft_error(void);
+int		ft_isdigit(int c);
+int		ft_check_digit(char **av);
+int		ft_checker(int ac, char **av);
 
 /* philo_utils.c */
 int		ft_atoi(const char *str);
-void	*ft_memset(void *s, int c, size_t n);
+void	take_forks(t_rules *rules, t_philo *philo);
+void	ft_eats(t_rules *rules, t_philo *philo);
+void	ft_sleep(t_rules *rules, t_philo *philo);
+void	ft_think(t_rules *rules, t_philo *philo);
+
+/* philo.c */
+void	*philo(void *arg);
+void	ft_run_philos(t_rules *rules);
+void	ft_detach_destroy(t_rules *rules);
 
 /* time.c */
-long    get_time(void);
-long    print_get_time(t_philo *philo);
-int		ft_my_sleep(t_philo *philo, long ms);
+long	get_time(void);
+long	print_get_time(t_philo *philo);
+int		ft_my_sleep(long ms);
 
-/* parce.c */
-void    ft_error(void);
-int		ft_isdigit(int c);
-int		ft_checker(int ac, char **av);
-
-/* check.c */
-int		check_died(t_philo *philo);
-// int		is_died(t_rules *rules);
-int		check_death_true(t_philo *philo);
+#endif
