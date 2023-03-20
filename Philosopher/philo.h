@@ -6,7 +6,7 @@
 /*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 16:17:05 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/03/20 17:35:24 by dkaratae         ###   ########.fr       */
+/*   Updated: 2023/03/20 19:48:59 by dkaratae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ void	ft_detach_destroy(t_rules *rules);
 /* time.c */
 long	get_time(void);
 long	print_get_time(t_philo *philo);
+// int		ft_my_sleep(long ms, t_philo *philo);
 int		ft_my_sleep(long ms);
 
 #endif

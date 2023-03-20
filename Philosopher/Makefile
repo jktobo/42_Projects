@@ -6,14 +6,15 @@
 #    By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/16 16:17:16 by dkaratae          #+#    #+#              #
-#    Updated: 2023/03/19 20:44:50 by dkaratae         ###   ########.fr        #
+#    Updated: 2023/03/20 20:44:28 by dkaratae         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc
 
-CFLAGS = -g -Wextra -Wall -Werror -pthread #-fsanitize=thread
-# CFLAGS = -Wextra -Wall -Werror -fsanitize=thread
+# CFLAGS = -Wextra -Wall -Werror -pthread #-fsanitize=thread
+CFLAGS = -Wextra -Wall -Werror 
+#-fsanitize=thread
 
 PHILO = philo
 
