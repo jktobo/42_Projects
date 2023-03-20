@@ -6,7 +6,7 @@
 /*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 21:33:46 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/03/19 19:18:36 by dkaratae         ###   ########.fr       */
+/*   Updated: 2023/03/20 15:44:47 by dkaratae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ft_init_rules(t_rules *rules, int ac, char **av)
 	else
 		rules->opt_arg = -1;
 	rules->count_ate = 0;
-	rules->is_run = 1;
+	rules->on_off = 1;
 	rules->start_time = 0;
 }
 
@@ -35,18 +35,28 @@ void	ft_init_mutex(t_rules *rules)
 	while (++i < rules->count_phil)
 		pthread_mutex_init(&rules->forks[i], NULL);
 	pthread_mutex_init(&rules->print, NULL);
+	pthread_mutex_init(&rules->check, NULL);
+	pthread_mutex_init(&rules->g, NULL);
 }
 
 void	ft_init_philo(t_rules *rules)
 {
 	int	i;
+	int	temp;
 
 	i = -1;
+	temp = 0;
 	while (++i < rules->count_phil)
 	{
 		rules->philo[i].id = i + 1;
 		rules->philo[i].r_fork = i;
 		rules->philo[i].l_fork = (i + 1) % rules->count_phil;
+		if (i % 2 == 1)
+		{
+			temp = rules->philo[i].l_fork;
+			rules->philo[i].l_fork = rules->philo[i].r_fork;
+			rules->philo[i].r_fork = temp;
+		}
 		rules->philo[i].count_eat = 0;
 		rules->philo[i].ate = 0;
 		rules->philo[i].last_eat = 0;

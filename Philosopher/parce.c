@@ -6,15 +6,16 @@
 /*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 13:32:55 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/03/19 19:20:03 by dkaratae         ###   ########.fr       */
+/*   Updated: 2023/03/20 16:55:28 by dkaratae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	ft_error(void)
+int	ft_error(void)
 {
 	printf("Parsing is error!\n");
+	return (1);
 }
 
 int	ft_isdigit(int c)
@@ -42,7 +43,23 @@ int	ft_check_digit(char **av)
 	return (0);
 }
 
-int	ft_checker(int ac, char **av)
+int	ft_check_max_min(t_rules *rules)
+{
+	long	max;
+
+	max = 2147483647;
+	if (rules->time_t_die < 60 || rules->time_t_eat < 60 || \
+		rules->time_t_sleep < 60)
+		return (ft_error());
+	if (rules->time_t_die > max || \
+		rules->time_t_eat > max || rules->time_t_sleep > max)
+		return (ft_error());
+	if (rules->count_phil > 200)
+		return (ft_error());
+	return (0);
+}
+
+int	ft_checker(int ac, char **av, t_rules *rules)
 {
 	if (!(ac == 5 || ac == 6))
 	{
@@ -54,5 +71,12 @@ int	ft_checker(int ac, char **av)
 		ft_error();
 		return (1);
 	}
+	ft_init_rules(rules, ac, av);
+	if (ft_check_max_min(rules))
+	{
+		return (1);
+	}
+	ft_init_mutex(rules);
+	ft_init_philo(rules);
 	return (0);
 }
