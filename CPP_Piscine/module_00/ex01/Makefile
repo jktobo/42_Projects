@@ -5,14 +5,17 @@
 #                                                     +:+ +:+         +:+      #
 #    By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/04/09 08:10:30 by dkaratae          #+#    #+#              #
-#    Updated: 2023/04/15 17:38:51 by dkaratae         ###   ########.fr        #
+#    Created: 2023/04/15 17:37:27 by dkaratae          #+#    #+#              #
+#    Updated: 2023/04/15 17:38:54 by dkaratae         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME:= megaphone
 
-SRCS := megaphone.cpp
+SRCS := Contact.cpp \
+		Phonebook.cpp \
+
+# INCLUDES := 
 
 OBJS := $(SRCS:,cpp=.o)
 
