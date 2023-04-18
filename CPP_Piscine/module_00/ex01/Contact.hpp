@@ -3,17 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
+/*   By: joldosh <joldosh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 10:06:24 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/04/16 14:49:38 by dkaratae         ###   ########.fr       */
+/*   Updated: 2023/04/18 15:54:47 by joldosh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #ifndef		CONTACT_HPP
 #define		CONTACT_HPP
+
 #include <string>
+#include <iostream>
 
 class Contact
 {
@@ -26,6 +28,8 @@ class Contact
 	public:
 	Contact ();
 	~Contact ();
-	Contact(std::string first_name, std::string last_name, std::string nickname, std::string phone_number, std::string darkest_secret);
+	void newContact();
+	
+	// Contact(std::string first_name, std::string last_name, std::string nickname, std::string phone_number, std::string darkest_secret);
 };
 #endif

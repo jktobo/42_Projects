@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   megaphone.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
+/*   By: joldosh <joldosh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 08:10:35 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/04/11 17:45:28 by dkaratae         ###   ########.fr       */
+/*   Updated: 2023/04/15 11:49:41 by joldosh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,10 @@ int main(int argc, char* argv[])
 
 	i = 0;
 	if (argc == 1)
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
+	{
+		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
+		return (1);	
+	}
 	else
 	{
 		while (argv[++i])
@@ -30,8 +33,8 @@ int main(int argc, char* argv[])
 			while (argv[i][++j])
 				std::cout << (char)toupper(argv[i][j]);
 		}	
+		std::cout << std::endl;
 	}
-	std::cout << std::endl;
 	return (0);
 }
 // int main(int argc, char* argv[])
