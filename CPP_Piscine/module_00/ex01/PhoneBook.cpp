@@ -6,7 +6,7 @@
 /*   By: joldosh <joldosh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 16:06:46 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/04/19 15:37:32 by joldosh          ###   ########.fr       */
+/*   Updated: 2023/04/19 16:14:49 by joldosh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,27 @@ void PhoneBook::printContacts(void)
 		std::cout << "|----------+----------+----------+----------|" << std::endl;
 	}
 	std::cout << "---------------------------------------------" << std::endl;
+	std::cout << std::endl;
+}
+
+void PhoneBook::searchCommand(void)
+{
+	int i;
+	int input;
+
+	for (i = 0; i < 8; i++)
+		if (array[i].getFirstName().empty())
+			break;
+	std::cout << "Enter index: " << std::endl;
+	std::cin >> input;
+	if (input >= 0 && input <= i)
+	{
+		std::cout << std::setw(16) << "FIRST NAME: " << array[input -1].getFirstName() << std::endl;
+		std::cout << std::setw(16) << "LAST NAME: " << array[input -1].getLastName() << std::endl;
+		std::cout << std::setw(16) << "NICKNAME: " << array[input -1].getNickName() << std::endl;
+		std::cout << std::setw(16) << "PHONE NUMBER: " << array[input -1].getPhoneNunber() << std::endl;
+		std::cout << std::setw(16) << "DARKEST SECRET: " << array[input -1].getDarkestSecret() << std::endl;
+	}
 	std::cout << std::endl;
 }
 

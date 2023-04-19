@@ -6,7 +6,7 @@
 /*   By: joldosh <joldosh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 10:06:29 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/04/19 14:31:48 by joldosh          ###   ########.fr       */
+/*   Updated: 2023/04/19 15:44:38 by joldosh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ class PhoneBook
 		void showCommand(void);
 		void addContact(void);
 		void printContacts(void);
+		void searchCommand(void);
 };
 
 #endif 

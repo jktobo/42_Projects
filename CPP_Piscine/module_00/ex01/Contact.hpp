@@ -6,7 +6,7 @@
 /*   By: joldosh <joldosh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 10:06:24 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/04/19 14:35:41 by joldosh          ###   ########.fr       */
+/*   Updated: 2023/04/19 16:19:11 by joldosh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,7 @@ class Contact
 	std::string getFirstName(void);
 	std::string getLastName(void);
 	std::string getNickName(void);
-
-	// void newContact();
-	
-	// Contact(std::string first_name, std::string last_name, std::string nickname, std::string phone_number, std::string darkest_secret);
+	std::string getPhoneNunber(void);
+	std::string getDarkestSecret(void);
 };
 #endif

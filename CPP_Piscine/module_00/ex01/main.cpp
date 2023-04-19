@@ -6,7 +6,7 @@
 /*   By: joldosh <joldosh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 16:42:07 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/04/19 15:40:38 by joldosh          ###   ########.fr       */
+/*   Updated: 2023/04/19 16:21:43 by joldosh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,12 @@ int main(int argc, char *argv[])
 		else if (input == "SEARCH")
 		{
 			book.printContacts();
-			
+			book.searchCommand();
 		}
 		else if (input == "EXIT")
 			break;
 		else
-			std::cout << "It isn't correct command!" << std::endl;
+			std::cout << "UNCORRECT COMMAND!\n" << std::endl;
 	}
 	return (0);
 }
