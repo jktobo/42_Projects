@@ -3,19 +3,21 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+         #
+#    By: joldosh <joldosh@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/15 17:37:27 by dkaratae          #+#    #+#              #
-#    Updated: 2023/04/15 17:38:54 by dkaratae         ###   ########.fr        #
+#    Updated: 2023/04/19 10:07:48 by joldosh          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME:= megaphone
 
-SRCS := Contact.cpp \
+SRCS := main.cpp \
+		Contact.cpp \
 		Phonebook.cpp \
 
-# INCLUDES := 
+INCLUDES := Contact.hpp \
+			Phonebook.hpp \
 
 OBJS := $(SRCS:,cpp=.o)
 
