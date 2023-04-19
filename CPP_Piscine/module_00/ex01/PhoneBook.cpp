@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joldosh <joldosh@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 16:06:46 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/04/19 16:14:49 by joldosh          ###   ########.fr       */
+/*   Updated: 2023/04/19 19:51:12 by dkaratae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,13 +76,19 @@ void PhoneBook::searchCommand(void)
 {
 	int i;
 	int input;
-
+	
+	i = 0;
+	if (array[i].getFirstName().empty())
+	{
+		std::cout << "CONTACT IS EMPTY!\n" << std::endl;
+		return ;
+	}
 	for (i = 0; i < 8; i++)
 		if (array[i].getFirstName().empty())
 			break;
-	std::cout << "Enter index: " << std::endl;
+	std::cout << "Enter index: ";
 	std::cin >> input;
-	if (input >= 0 && input <= i)
+	if (input > 0 && input <= i)
 	{
 		std::cout << std::setw(16) << "FIRST NAME: " << array[input -1].getFirstName() << std::endl;
 		std::cout << std::setw(16) << "LAST NAME: " << array[input -1].getLastName() << std::endl;
@@ -90,7 +96,11 @@ void PhoneBook::searchCommand(void)
 		std::cout << std::setw(16) << "PHONE NUMBER: " << array[input -1].getPhoneNunber() << std::endl;
 		std::cout << std::setw(16) << "DARKEST SECRET: " << array[input -1].getDarkestSecret() << std::endl;
 	}
+	else
+		std::cout << "UNCORRECT INDEX!" << std::endl;
 	std::cout << std::endl;
+	std::cin.clear();
+	// std::cin.ignore(32767, '\n');
 }
 
 void PhoneBook::showCommand(void)
