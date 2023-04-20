@@ -3,14 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+         #
+#    By: joldosh <joldosh@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/15 17:37:27 by dkaratae          #+#    #+#              #
-#    Updated: 2023/04/19 19:47:13 by dkaratae         ###   ########.fr        #
+#    Updated: 2023/04/20 15:10:49 by joldosh          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME:= megaphone
+NAME:= phonebook
 
 SRCS := main.cpp \
 		Contact.cpp \
