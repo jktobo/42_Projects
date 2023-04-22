@@ -6,15 +6,13 @@
 #    By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/20 16:57:54 by dkaratae          #+#    #+#              #
-#    Updated: 2023/04/21 11:56:26 by dkaratae         ###   ########.fr        #
+#    Updated: 2023/04/22 16:10:31 by dkaratae         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME:= zombies
+NAME:= brain
 
 SRCS := main.cpp \
-		Zombie.cpp \
-		zombieHorde.cpp \
 
 OBJS := $(SRCS:,cpp=.o)
 
