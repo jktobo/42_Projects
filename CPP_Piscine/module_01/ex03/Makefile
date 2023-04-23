@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: joldosh <joldosh@student.42.fr>            +#+  +:+       +#+         #
+#    By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/20 16:59:32 by dkaratae          #+#    #+#              #
-#    Updated: 2023/04/23 13:01:18 by joldosh          ###   ########.fr        #
+#    Updated: 2023/04/23 14:40:49 by dkaratae         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME:= violence
 SRCS := main.cpp \
 		Weapon.cpp \
 		HumanA.cpp \
-		# HumanB.cpp \
+		HumanB.cpp \
 		
 OBJS := $(SRCS:,cpp=.o)
 

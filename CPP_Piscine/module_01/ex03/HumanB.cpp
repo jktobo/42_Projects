@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joldosh <joldosh@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 16:59:52 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/04/23 14:10:15 by joldosh          ###   ########.fr       */
+/*   Updated: 2023/04/23 15:49:55 by dkaratae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanB.hpp"
 
-HumanB::HumanB(std::string const &a_name)
+HumanB::HumanB(std::string a_name)
 {
     name = a_name;
 }
@@ -24,8 +24,7 @@ HumanB::~HumanB()
 
 void HumanB::attack()
 {
-    if (weapon != nullptr)
-        std::cout << name << " attacks with their " << weapon.getType() << std::endl;
+        std::cout << name << " attacks with their " << weapon->getType() << std::endl;
 }
 
 void HumanB::setWeapon(Weapon &a_weapon)
