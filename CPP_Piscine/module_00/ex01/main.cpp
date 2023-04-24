@@ -6,20 +6,15 @@
 /*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 16:42:07 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/04/19 19:43:32 by dkaratae         ###   ########.fr       */
+/*   Updated: 2023/04/24 16:37:23 by dkaratae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 #include "Contact.hpp"
-// #include <string>
-// #include <iostream>
 
-int main(int argc, char *argv[])
+int main(void)
 {
-	(void)argc;
-	(void)argv;
-
 	PhoneBook book;
 	std::string input;
 

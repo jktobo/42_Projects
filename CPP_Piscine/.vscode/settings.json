@@ -62,6 +62,9 @@
 		"vector": "cpp",
 		"__bits": "cpp",
 		"clocale": "cpp",
-		"iomanip": "cpp"
+		"iomanip": "cpp",
+		"deque": "cpp",
+		"fstream": "cpp",
+		"stack": "cpp"
 	}
 }
