@@ -6,7 +6,7 @@
 #    By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/20 16:53:56 by dkaratae          #+#    #+#              #
-#    Updated: 2023/04/20 16:53:58 by dkaratae         ###   ########.fr        #
+#    Updated: 2023/04/26 16:01:57 by dkaratae         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,21 +17,21 @@ SRCS := main.cpp \
 		newZombie.cpp \
 		randomChump.cpp \
 
-OBJS := $(SRCS:,cpp=.o)
+OBJS := $(SRCS:.cpp=.o)
 
-CC := g++
-CFLAGS := -Wall -Wextra -Werror -std=c++98
+CXX := g++
+CXXFLAGS := -Wall -Wextra -Werror -std=c++98
 
 all : $(NAME)
 
-$(NAME) : $(OBJS) Makefile
-	$(CC) $(OBJS) -o $(NAME)
+$(NAME) : $(OBJS)
+	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
 clean :
-	rm -rf $(NAME)
+	rm $(OBJS)
 
 fclean : clean
 	rm -rf $(NAME)
 
-re : flclean all
+re : fclean all
 .PHONY : all clean fclean re

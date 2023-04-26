@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: joldosh <joldosh@student.42.fr>            +#+  +:+       +#+         #
+#    By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/20 17:03:52 by dkaratae          #+#    #+#              #
-#    Updated: 2023/04/24 13:31:31 by joldosh          ###   ########.fr        #
+#    Updated: 2023/04/26 16:02:37 by dkaratae         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,21 +14,21 @@ NAME:= losers
 
 SRCS := main.cpp \
 		
-OBJS := $(SRCS:,cpp=.o)
+OBJS := $(SRCS:.cpp=.o)
 
-CC := g++
-CFLAGS := -Wall -Wextra -Werror -std=c++98
+CXX := g++
+CXXFLAGS := -Wall -Wextra -Werror -std=c++98
 
 all : $(NAME)
 
-$(NAME) : $(OBJS) Makefile
-	$(CC) $(OBJS) -o $(NAME)
+$(NAME) : $(OBJS)
+	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
 clean :
-	rm -rf $(NAME)
+	rm $(OBJS)
 
 fclean : clean
 	rm -rf $(NAME)
 
-re : flclean all
+re : fclean all
 .PHONY : all clean fclean re

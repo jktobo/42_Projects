@@ -6,12 +6,12 @@
 /*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 16:42:07 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/04/24 16:37:23 by dkaratae         ###   ########.fr       */
+/*   Updated: 2023/04/25 13:18:00 by dkaratae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PhoneBook.hpp"
-#include "Contact.hpp"
+#include "PhoneBook.Class.hpp"
+#include "Contact.Class.hpp"
 
 int main(void)
 {
