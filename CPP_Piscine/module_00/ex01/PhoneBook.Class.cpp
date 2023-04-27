@@ -6,7 +6,7 @@
 /*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 16:06:46 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/04/27 17:16:15 by dkaratae         ###   ########.fr       */
+/*   Updated: 2023/04/27 17:59:14 by dkaratae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ void PhoneBook::searchCommand(void)
 		std::cout << "UNCORRECT INDEX!" << std::endl;
 	std::cout << std::endl;
 
-
+}
 void PhoneBook::showCommand(void)
 {
 	std::cout << "**************************************" << std::endl;
