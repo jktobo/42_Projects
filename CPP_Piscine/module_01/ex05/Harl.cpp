@@ -6,7 +6,7 @@
 /*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 17:03:27 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/04/29 19:13:57 by dkaratae         ###   ########.fr       */
+/*   Updated: 2023/04/29 20:17:18 by dkaratae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,16 +42,24 @@ void Harl::error(void)
     std::cout << "This is unacceptable! I want to speak to the manager now." << std::endl;
 }
 
-void Harl::ShowInfo(void(*ptr)(void))
+std::string Harl::test(void)
 {
-    ptr();
+    return "This is unacceptable! I want to speak to the manager now.";
+}
+
+// void Harl::ShowInfo(std::string(Harl::*ptr)())
+void Harl::ShowInfo(void(Harl::*ptr)())
+{
+    (this->*ptr)();
 }
 
 void Harl::complain(std::string level)
 {
-    
-    ShowInfo(level);
-    // std::cout << level << std::endl;
+    std::cout << level << std::endl;
+    void (Harl::*p)() = nullptr;
+    p = &Harl::debug;
+    (this->*p)();
+    // ShowInfo(error);
     
     // void (Harl::*ptr)(void) = nullptr;
 
