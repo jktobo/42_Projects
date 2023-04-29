@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Harl.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joldosh <joldosh@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 17:03:27 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/04/27 13:05:58 by joldosh          ###   ########.fr       */
+/*   Updated: 2023/04/29 19:13:57 by dkaratae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,23 @@ void Harl::warning(void)
 void Harl::error(void)
 {
     std::cout << "This is unacceptable! I want to speak to the manager now." << std::endl;
+}
+
+void Harl::ShowInfo(void(*ptr)(void))
+{
+    ptr();
+}
+
+void Harl::complain(std::string level)
+{
+    
+    ShowInfo(level);
+    // std::cout << level << std::endl;
+    
+    // void (Harl::*ptr)(void) = nullptr;
+
+    
+    // ptr = &Harl::debug;
+    
+    // (this->*ptr)();
 }

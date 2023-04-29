@@ -6,7 +6,7 @@
 /*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 08:10:35 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/04/26 15:23:53 by dkaratae         ###   ########.fr       */
+/*   Updated: 2023/04/29 14:41:56 by dkaratae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,9 @@ int main(int argc, char* argv[])
 			j = -1;
 			while (argv[i][++j])
 				std::cout << (char)toupper(argv[i][j]);
-			std::cout << " ";
+			if (i < argc - 1)
+				std::cout << " ";
+			
 		}	
 	}
 	std::cout << std::endl;

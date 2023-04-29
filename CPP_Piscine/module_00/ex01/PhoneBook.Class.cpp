@@ -6,7 +6,7 @@
 /*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 16:06:46 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/04/27 17:59:14 by dkaratae         ###   ########.fr       */
+/*   Updated: 2023/04/29 15:45:12 by dkaratae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ void PhoneBook::addContact(void)
 		std::cin >> darkest_secret;
 		array[countContact].setDarkestSecret(darkest_secret);
 		countContact++;
-	}	
-	else
+	}
+	if (countContact >= 8)
 		countContact = 0;
 }
 
@@ -81,15 +81,20 @@ void PhoneBook::searchCommand(void)
 	if (array[i].getFirstName().empty())
 	{
 		std::cout << "CONTACT IS EMPTY!\n" << std::endl;
-		return ;
+		return;
 	}
 	for (i = 0; i < 8; i++)
 		if (array[i].getFirstName().empty())
 			break;
 	std::cout << "Enter index: ";
 	std::cin >> input;
-	std::cin.clear();
-	std::cin.ignore(10000, '\n');
+	if (!std::cin.good())
+	{
+		std::cout << "\nTRY TO ENTER CORRECT COMMAND!" << std::endl;
+		std::cin.clear();
+		std::cin.ignore(10000, '\n');
+		return;
+	}
 	if (input > 0 && input <= i)
 	{
 		std::cout << std::setw(16) << "FIRST NAME: " << array[input -1].getFirstName() << std::endl;
@@ -99,9 +104,10 @@ void PhoneBook::searchCommand(void)
 		std::cout << std::setw(16) << "DARKEST SECRET: " << array[input -1].getDarkestSecret() << std::endl;
 	}
 	else
-		std::cout << "UNCORRECT INDEX!" << std::endl;
+		std::cout << "\nUNCORRECT INDEX!" << std::endl;
 	std::cout << std::endl;
-
+	// std::cin.clear();
+	// std::cin.ignore(10000, '\n');
 }
 void PhoneBook::showCommand(void)
 {

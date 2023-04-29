@@ -6,29 +6,30 @@
 #    By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/09 08:10:30 by dkaratae          #+#    #+#              #
-#    Updated: 2023/04/26 15:22:48 by dkaratae         ###   ########.fr        #
+#    Updated: 2023/04/29 15:00:14 by dkaratae         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME:= megaphone
+NAME = megaphone
 
-SRCS := megaphone.cpp
+SRCS = megaphone.cpp \
 
-OBJS := $(SRCS:.cpp=.o)
+OBJS = $(SRCS:.cpp=.o)
 
-CXX := g++
-CXXFLAGS := -Wall -Wextra -Werror -std=c++98
+CXX = c++
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
-all : $(NAME)
+.PHONY: all clean fclean re
 
-$(NAME) : $(OBJS)
+all: $(NAME)
+
+$(NAME): $(OBJS)
 	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
-clean :
-	rm $(OBJS)
+clean:
+	rm -f $(OBJS)
 
-fclean : clean
-	rm -rf $(NAME)
+fclean: clean
+	rm -f $(NAME)
 
-re : fclean all
-.PHONY : all clean fclean re
+re: fclean all

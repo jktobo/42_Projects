@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joldosh <joldosh@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 17:03:23 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/04/27 13:02:18 by joldosh          ###   ########.fr       */
+/*   Updated: 2023/04/29 19:12:15 by dkaratae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,6 @@ class Harl
         Harl();
         ~Harl();
         void complain(std::string level);
+        void ShowInfo(void(*ptr)(void));
 };
 #endif
