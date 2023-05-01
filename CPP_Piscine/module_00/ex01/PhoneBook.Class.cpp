@@ -6,7 +6,7 @@
 /*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 16:06:46 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/04/29 15:45:12 by dkaratae         ###   ########.fr       */
+/*   Updated: 2023/04/30 16:24:04 by dkaratae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,13 +88,8 @@ void PhoneBook::searchCommand(void)
 			break;
 	std::cout << "Enter index: ";
 	std::cin >> input;
-	if (!std::cin.good())
-	{
-		std::cout << "\nTRY TO ENTER CORRECT COMMAND!" << std::endl;
-		std::cin.clear();
-		std::cin.ignore(10000, '\n');
-		return;
-	}
+	std::cin.clear();
+	std::cin.ignore(10000, '\n');
 	if (input > 0 && input <= i)
 	{
 		std::cout << std::setw(16) << "FIRST NAME: " << array[input -1].getFirstName() << std::endl;
@@ -106,8 +101,6 @@ void PhoneBook::searchCommand(void)
 	else
 		std::cout << "\nUNCORRECT INDEX!" << std::endl;
 	std::cout << std::endl;
-	// std::cin.clear();
-	// std::cin.ignore(10000, '\n');
 }
 void PhoneBook::showCommand(void)
 {

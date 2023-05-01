@@ -6,7 +6,7 @@
 /*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 17:03:27 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/04/29 20:17:18 by dkaratae         ###   ########.fr       */
+/*   Updated: 2023/05/01 17:50:09 by dkaratae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,11 +60,7 @@ void Harl::complain(std::string level)
     p = &Harl::debug;
     (this->*p)();
     // ShowInfo(error);
-    
     // void (Harl::*ptr)(void) = nullptr;
-
-    
     // ptr = &Harl::debug;
-    
     // (this->*ptr)();
 }

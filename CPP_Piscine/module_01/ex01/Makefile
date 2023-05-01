@@ -6,19 +6,19 @@
 #    By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/20 16:55:51 by dkaratae          #+#    #+#              #
-#    Updated: 2023/04/26 16:02:11 by dkaratae         ###   ########.fr        #
+#    Updated: 2023/05/01 17:15:17 by dkaratae         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME:= zombies
+NAME	= zombies
 
-SRCS := main.cpp \
+SRCS 	= main.cpp \
 		Zombie.cpp \
 		zombieHorde.cpp \
 
-OBJS := $(SRCS:.cpp=.o)
+OBJS = $(SRCS:.cpp=.o)
 
-CXX := g++
+CXX = c++
 CXXFLAGS := -Wall -Wextra -Werror -std=c++98
 
 all : $(NAME)

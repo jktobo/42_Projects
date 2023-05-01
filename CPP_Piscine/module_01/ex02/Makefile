@@ -6,18 +6,18 @@
 #    By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/20 16:57:54 by dkaratae          #+#    #+#              #
-#    Updated: 2023/04/26 16:02:21 by dkaratae         ###   ########.fr        #
+#    Updated: 2023/05/01 17:15:36 by dkaratae         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME:= brain
+NAME	= brain
 
-SRCS := main.cpp \
+SRCS = main.cpp \
 
-OBJS := $(SRCS:.cpp=.o)
+OBJS = $(SRCS:.cpp=.o)
 
-CXX := g++
-CXXFLAGS := -Wall -Wextra -Werror -std=c++98
+CXX = c++
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 all : $(NAME)
 

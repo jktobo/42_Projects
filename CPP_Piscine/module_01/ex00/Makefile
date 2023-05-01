@@ -6,21 +6,21 @@
 #    By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/20 16:53:56 by dkaratae          #+#    #+#              #
-#    Updated: 2023/04/26 16:01:57 by dkaratae         ###   ########.fr        #
+#    Updated: 2023/05/01 17:14:48 by dkaratae         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME:= zombie
+NAME = zombie
 
-SRCS := main.cpp \
+SRCS = main.cpp \
 		Zombie.cpp \
 		newZombie.cpp \
 		randomChump.cpp \
 
-OBJS := $(SRCS:.cpp=.o)
+OBJS = $(SRCS:.cpp=.o)
 
-CXX := g++
-CXXFLAGS := -Wall -Wextra -Werror -std=c++98
+CXX = c++
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 all : $(NAME)
 

@@ -6,7 +6,7 @@
 /*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 16:42:07 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/04/29 14:44:33 by dkaratae         ###   ########.fr       */
+/*   Updated: 2023/04/30 16:32:39 by dkaratae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,7 @@ int main(void)
 	{
 		book.showCommand();
 		std::cout << "Enter command: ";
-		std::cin >> input;
-		// std::getline(std::cin, input);
+		std::getline(std::cin, input);
 		if (!std::cin.good())
 		{
 			std::cout << "TRY TO ENTER CORRECT COMMAND!" << std::endl;
@@ -34,7 +33,11 @@ int main(void)
 		}
 		std::cout << std::endl;
 		if (input == "ADD")
+		{
 			book.addContact();
+			std::cin.clear();
+			std::cin.ignore(10000, '\n');
+		}
 		else if (input == "SEARCH")
 		{
 			book.printContacts();
@@ -44,8 +47,6 @@ int main(void)
 			break;
 		else
 			std::cout << "UNCORRECT COMMAND!\n" << std::endl;
-		// std::cin.clear();
-		// std::cin.ignore(10000, '\n');
 	}
 	return (0);
 }
