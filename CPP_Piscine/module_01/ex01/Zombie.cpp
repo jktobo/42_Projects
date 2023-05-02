@@ -6,7 +6,7 @@
 /*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 16:57:00 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/04/21 11:27:53 by dkaratae         ###   ########.fr       */
+/*   Updated: 2023/05/02 16:23:56 by dkaratae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Zombie::Zombie()
 {
-	
+    
 }
 Zombie::~Zombie()
 {
