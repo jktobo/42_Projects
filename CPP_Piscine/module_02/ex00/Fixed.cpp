@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joldosh <joldosh@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 17:46:08 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/05/06 14:19:03 by joldosh          ###   ########.fr       */
+/*   Updated: 2023/05/06 19:02:02 by dkaratae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 Fixed::Fixed()
 {
-    fixed_point = 0;
     std::cout << "Default constructor called" << std::endl;
+    fixed_point = 0;
 }
 
 Fixed::Fixed(const Fixed &other)
 {
-    *this = other;
     std::cout << "Copy constructor called" << std::endl;
+    *this = other;
 }
 
 Fixed &Fixed::operator = (const Fixed &other)
@@ -31,7 +31,6 @@ Fixed &Fixed::operator = (const Fixed &other)
         this->fixed_point = other.fixed_point;
     return *this;
 }
-
 Fixed::~Fixed()
 {
     std::cout << "Destructor called" << std::endl;
