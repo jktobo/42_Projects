@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   HumanB.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joldosh <joldosh@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 16:59:54 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/05/05 19:21:44 by joldosh          ###   ########.fr       */
+/*   Updated: 2023/05/08 18:52:39 by dkaratae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ class HumanB
     private:
         std::string name;
         Weapon *weapon;
-        int flag;
     public:
         ~HumanB();
         HumanB(std::string a_name);

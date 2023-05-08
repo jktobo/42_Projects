@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joldosh <joldosh@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 16:59:52 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/05/05 19:22:58 by joldosh          ###   ########.fr       */
+/*   Updated: 2023/05/08 18:56:21 by dkaratae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 HumanB::HumanB(std::string a_name)
 {
     name = a_name;
-    flag = 0;
+    weapon = NULL;
 }
 
 HumanB::~HumanB()
@@ -25,15 +25,13 @@ HumanB::~HumanB()
 
 void HumanB::attack()
 {
-    if (flag)
-        std::cout << name << " attacks with their " << weapon->getType() << std::endl;
-    else
+    if (!weapon)
         std::cout << " Error!! " << std::endl;
-    
+    else
+        std::cout << name << " attacks with their " << weapon->getType() << std::endl;
 }
 
 void HumanB::setWeapon(Weapon &a_weapon)
 {
     weapon = &a_weapon;
-    this->flag = 1;
 }
