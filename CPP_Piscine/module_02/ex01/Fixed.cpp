@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joldosh <joldosh@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 17:46:20 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/05/06 21:12:24 by joldosh          ###   ########.fr       */
+/*   Updated: 2023/05/08 15:59:34 by dkaratae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,18 @@ Fixed::Fixed(const Fixed &other)
 {
     std::cout << "Copy constructor called" << std::endl;
     *this = other;
+}
+
+Fixed::Fixed(const int intNum)
+{
+    std::cout << "Int constructor called" << std::endl;
+    fixed_point = intNum << FB;
+}
+
+Fixed::Fixed(const float floatNum)
+{
+    std::cout << "Float constructor called" << std::endl;
+    fixed_point = int(roundf(floatNum * (1 << FB)));
 }
 
 Fixed &Fixed::operator = (const Fixed &other)
@@ -47,12 +59,19 @@ void Fixed::setRawBits(int const raw)
     fixed_point = raw;
 }
 
+
 float Fixed::toFloat(void) const
 {
-    return 
+    return float(fixed_point) / float(1 << FB); 
 }
 
 int Fixed::toInt( void ) const
 {
-    return 
+    return (fixed_point >> FB);
+}
+
+std::ostream& operator<<(std::ostream &stream, const Fixed &print)
+{
+    stream << print.toFloat();
+    return stream;
 }

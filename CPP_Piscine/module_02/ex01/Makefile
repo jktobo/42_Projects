@@ -3,14 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: joldosh <joldosh@student.42.fr>            +#+  +:+       +#+         #
+#    By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/03 17:46:28 by dkaratae          #+#    #+#              #
-#    Updated: 2023/05/06 20:35:25 by joldosh          ###   ########.fr        #
+#    Updated: 2023/05/07 15:01:33 by dkaratae         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= orthodox
+NAME = orthodox
 
 SRCS = main.cpp \
 		Fixed.cpp \
