@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
+/*   By: joldosh <joldosh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 17:46:32 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/05/08 16:05:59 by dkaratae         ###   ########.fr       */
+/*   Updated: 2023/05/10 13:21:32 by joldosh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,4 +74,142 @@ std::ostream& operator<<(std::ostream &stream, const Fixed &print)
 {
     stream << print.toFloat();
     return stream;
+}
+
+// The 6 comparison operators: >, <, >=, <=, == and !=.
+
+bool Fixed::operator > (const Fixed &other) const
+{
+    if (this->fixed_point > other.fixed_point)
+        return true;
+    else
+        return false;
+}
+
+bool Fixed::operator < (const Fixed &other) const
+{
+    if (this->fixed_point < other.fixed_point)
+        return true;
+    else
+        return false;
+}
+
+bool Fixed::operator >= (const Fixed &other) const
+{
+    if (this->fixed_point >= other.fixed_point)
+        return true;
+    else
+        return false;
+}
+
+bool Fixed::operator <= (const Fixed &other) const
+{
+    if (this->fixed_point <= other.fixed_point)
+        return true;
+    else
+        return false;
+}
+
+bool Fixed::operator == (const Fixed &other) const
+{
+    if (this->fixed_point == other.fixed_point)
+        return true;
+    else
+        return false;
+}
+
+bool Fixed::operator != (const Fixed &other) const
+{
+    if (this->fixed_point == other.fixed_point)
+        return true;
+    else
+        return false;
+}
+
+// The 4 arithmetic operators: +, -, *, and /.
+
+Fixed Fixed::operator + (const Fixed &other)
+{
+    Fixed plus(this->toFloat() + other.toFloat());
+    return plus;
+}
+
+Fixed Fixed::operator - (const Fixed &other)
+{
+    Fixed subtract(this->toFloat() - other.toFloat());
+    return subtract;
+}
+
+Fixed Fixed::operator * (const Fixed &other)
+{
+    Fixed multiply(this->toFloat() * other.toFloat());
+    return multiply;
+}
+
+Fixed Fixed::operator / (const Fixed &other)
+{
+    Fixed division(this->toFloat() / other.toFloat());
+    return division;
+}
+
+// The 4 increment/decrement
+
+Fixed& Fixed::operator ++ () // prefix increment
+{
+    this->fixed_point++;
+    return *this;
+}
+
+Fixed Fixed::operator ++ (int) // postfix increment
+{
+    Fixed temp(*this);
+    this->fixed_point++;
+    return temp;
+}
+
+Fixed& Fixed::operator -- () // prefix decrement
+{
+    this->fixed_point--;
+    return *this;
+}
+
+Fixed Fixed::operator -- (int) // postfix decrement
+{
+    Fixed temp(*this);
+    this->fixed_point--;
+    return temp;
+}
+
+// min, max, const min, const max
+
+Fixed& Fixed::min(Fixed &arg1, Fixed &arg2)
+{
+    if (arg1 < arg2)
+        return arg1;
+    else
+        return arg2;
+}
+
+Fixed& Fixed::max(Fixed &arg1, Fixed &arg2)
+{
+    if (arg1 > arg2)
+        return arg1;
+    else
+        return arg2;
+}
+
+const Fixed& Fixed::min(const Fixed &arg1, const Fixed &arg2)
+{
+    if (arg1 < arg2)
+        return arg1;
+    else
+        return arg2;
+}
+
+const Fixed& Fixed::max(const Fixed &arg1, const Fixed &arg2)
+{
+    if (arg1 > arg2)
+        return arg1;
+    else
+        return arg2;
 }

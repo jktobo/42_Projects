@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
+/*   By: joldosh <joldosh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 17:46:20 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/05/08 15:59:34 by dkaratae         ###   ########.fr       */
+/*   Updated: 2023/05/09 20:03:10 by joldosh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ Fixed &Fixed::operator = (const Fixed &other)
     if (this != &other)
         this->fixed_point = other.fixed_point;
     return *this;
-}
+} 
 Fixed::~Fixed()
 {
     std::cout << "Destructor called" << std::endl;
