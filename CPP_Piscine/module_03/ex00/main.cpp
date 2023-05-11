@@ -6,7 +6,7 @@
 /*   By: joldosh <joldosh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 18:38:22 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/05/10 20:46:24 by joldosh          ###   ########.fr       */
+/*   Updated: 2023/05/11 16:48:38 by joldosh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 int main()
 {
     ClapTrap bob("My");
-    std::cout << bob.getH() << std::endl;
-    std::cout << bob.getP() << std::endl;
-    std::cout << bob.getD() << std::endl;
+    bob.attack("B");
+    bob.takeDamage(4);
+    bob.beRepaired(3);
     return (0);
 }

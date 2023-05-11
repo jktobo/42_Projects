@@ -6,51 +6,49 @@
 /*   By: joldosh <joldosh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 18:38:27 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/05/10 20:44:57 by joldosh          ###   ########.fr       */
+/*   Updated: 2023/05/11 16:49:31 by joldosh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
+ClapTrap::ClapTrap(void)
+{
+    std::cout << "Default constructor called" << std::endl;
+    _name = "default";
+    _hitPoints = 10;
+    _energyPoints = 10;
+    _atackDamage = 0;
+}
 ClapTrap::ClapTrap(std::string name)
 {
-    this->name = name;
-    hitPoints = 10;
-    energyPoints = 10;
-    atackDamage = 0;
+    std::cout << "Constructor with parameter called" << std::endl;
+    _name = name;
+    _hitPoints = 10;
+    _energyPoints = 10;
+    _atackDamage = 0;
 }
 
 ClapTrap::~ClapTrap()
 {
-    
+    std::cout << "Destructor called" << std::endl;
 }
 
-// void ClapTrap::attack(const std::string &target)
-// {
-    
-// }
-
-// void ClapTrap::takeDamage(unsigned int amount)
-// {
-    
-// }
-
-// void ClapTrap::beRepaired(unsigned int amount)
-// {
-    
-// }
-
-int ClapTrap::getH(void)
+void ClapTrap::attack(const std::string &target)
 {
-    return hitPoints;
+    std::cout << "ClapTrap " << _name << " attacks " << target << ", causing " << _atackDamage << " points of damage!" << std::endl;
+    _hitPoints--;
 }
 
-int ClapTrap::getP(void)
+void ClapTrap::takeDamage(unsigned int amount)
 {
-    return energyPoints;
+    _hitPoints -= amount;
+    std::cout << "ClapTrap " << _name << " was damage " << amount << ", and has  " << _hitPoints << " points!" << std::endl;
 }
 
-int ClapTrap::getD(void)
+void ClapTrap::beRepaired(unsigned int amount)
 {
-    return atackDamage;
+    _energyPoints--;
+    _hitPoints += amount;
+    std::cout << "ClapTrap " << _name << " was repaired " << amount << ", and has  " << _hitPoints << " points!" << std::endl;
 }
