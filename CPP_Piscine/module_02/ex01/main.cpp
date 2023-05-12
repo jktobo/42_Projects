@@ -6,14 +6,14 @@
 /*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 17:46:26 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/05/08 16:02:04 by dkaratae         ###   ########.fr       */
+/*   Updated: 2023/05/12 16:11:19 by dkaratae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 #include <ostream>
 
-int main( void )
+int main(void)
 {
 	Fixed a;
 	Fixed const b(10);

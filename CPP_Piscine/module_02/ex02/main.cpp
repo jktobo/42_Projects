@@ -6,13 +6,13 @@
 /*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 17:46:37 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/05/10 14:31:35 by dkaratae         ###   ########.fr       */
+/*   Updated: 2023/05/12 16:11:11 by dkaratae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-int main( void )
+int main(void)
 {
 	Fixed a;
 	Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );

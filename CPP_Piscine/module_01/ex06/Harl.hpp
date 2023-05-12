@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joldosh <joldosh@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 17:03:07 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/05/11 17:11:03 by joldosh          ###   ########.fr       */
+/*   Updated: 2023/05/11 19:56:50 by dkaratae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ class Harl
         void info(void);
         void warning(void);
         void error(void);
-        std::string test(void);
     public:
         Harl();
         ~Harl();

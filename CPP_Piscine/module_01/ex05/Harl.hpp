@@ -6,7 +6,7 @@
 /*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 17:03:23 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/05/02 14:57:20 by dkaratae         ###   ########.fr       */
+/*   Updated: 2023/05/11 18:35:50 by dkaratae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ class Harl
         void info(void);
         void warning(void);
         void error(void);
-        std::string test(void);
     public:
         Harl();
         ~Harl();

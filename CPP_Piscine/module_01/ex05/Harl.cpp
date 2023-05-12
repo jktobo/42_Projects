@@ -6,11 +6,12 @@
 /*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 17:03:27 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/05/02 14:57:06 by dkaratae         ###   ########.fr       */
+/*   Updated: 2023/05/11 19:53:05 by dkaratae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
+#include <cstddef>
 
 Harl::Harl()
 {
@@ -42,31 +43,30 @@ void Harl::error(void)
     std::cout << "This is unacceptable! I want to speak to the manager now." << std::endl;
 }
 
-std::string Harl::test(void)
-{
-    return "This is unacceptable! I want to speak to the manager now.";
-}
-
 void Harl::complain(std::string level)
 {
-    char c = level[0];
-    void (Harl::*p)() = nullptr;
-    switch (c) {
-        case 'd':
+    std::string array[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+    int i;
+    for (i = 0; i < 4; i++)
+        if (level == array[i])
+            break;
+    void (Harl::*p)() = NULL;
+    switch (i) {
+        case 0:
             p = &Harl::debug;
             break;
-        case 'i':
+        case 1:
             p = &Harl::info;
             break;
-        case 'w':
+        case 2:
             p = &Harl::warning;
             break;
-        case 'e':
+        case 3:
             p = &Harl::error;
             break;
         default:
             std::cout << "Error!" << std::endl;
-            break;
+            return;
     }
     (this->*p)();
 }

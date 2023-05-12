@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joldosh <joldosh@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 17:03:04 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/05/11 17:32:23 by joldosh          ###   ########.fr       */
+/*   Updated: 2023/05/11 20:17:03 by dkaratae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
 {
     if (argc != 2)
     {
-        std::cout << "Error! You need to enter next one command: debug, info, warning, error" << std::cout;
+        std::cout << "Error! You need to enter next one command: DEBUG, INFO, WARNING, ERROR" << std::endl;
         return (1);
     }
     Harl harl;
