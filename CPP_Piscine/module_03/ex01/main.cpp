@@ -6,7 +6,7 @@
 /*   By: joldosh <joldosh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 18:38:39 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/05/17 12:18:35 by joldosh          ###   ########.fr       */
+/*   Updated: 2023/05/18 10:40:11 by joldosh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,12 @@
 
 int main()
 {
-    ClapTrap bob("My");
-    bob.attack("B");
-    bob.takeDamage(4);
-    bob.beRepaired(3);
+    ScavTrap scavTrap("Earth");
 
-
-    ScavTrap jon(bob);
-
+    scavTrap.attack("Mars");
+    scavTrap.takeDamage(30);
+    scavTrap.beRepaired(15);
+    scavTrap.guardGate();
 
     return (0);
 }
