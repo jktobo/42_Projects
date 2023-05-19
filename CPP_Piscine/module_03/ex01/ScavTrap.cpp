@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joldosh <joldosh@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 18:38:46 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/05/17 12:16:41 by joldosh          ###   ########.fr       */
+/*   Updated: 2023/05/17 14:35:09 by dkaratae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,9 @@ ScavTrap::ScavTrap(const ScavTrap &other) : ClapTrap(other)
     std::cout << "Copy constructor ScavTrap called" << std::endl;
 }
 
-// ClapTrap& ClapTrap::operator = (const ClapTrap &other)
+// ScavTrap& ScavTrap::operator = (const ScavTrap &other)
 // {
-//     std::cout << "Copy assignment operator ClapTrap called" << std::endl;
+//     std::cout << "Copy assignment operator ScavTrap called" << std::endl;
 //     if (this != &other)
 //     {
 //         _name = other._name;
@@ -47,24 +47,12 @@ ScavTrap::ScavTrap(const ScavTrap &other) : ClapTrap(other)
 //     return *this;
 // }
 
-// ClapTrap::~ClapTrap()
-// {
-//     std::cout << "Destructor ClapTrap called" << std::endl;
-// }
+ScavTrap::~ScavTrap()
+{
+    std::cout << "Destructor ScavTrap called" << std::endl;
+}
 
-// void ClapTrap::attack(const std::string &target)
+// void ScavTrap::attack(const std::string &target)
 // {
-//     if (_hitPoints <= 0)
-//     {
-//         std::cout << "ClapTrap " << _name << " can't attack, it hasn't hitpoint" << std::endl;
-//         return;
-//     }
-//     else if (_energyPoints <= 0)
-//     {
-//         std::cout << "ClapTrap " << _name << " can't attack, it hasn't energypoint" << std::endl;
-//         return;
-//     }
-//     std::cout << "ClapTrap " << _name << " attacks " << target << ", causing " << _atackDamage << " points of damage!" << std::endl;
-//     // _hitPoints = _hitPoints - _atackDamage;
-//     _energyPoints--;
+
 // }
