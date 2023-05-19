@@ -6,11 +6,11 @@
 #    By: joldosh <joldosh@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/10 18:38:43 by dkaratae          #+#    #+#              #
-#    Updated: 2023/05/17 11:35:43 by joldosh          ###   ########.fr        #
+#    Updated: 2023/05/17 18:05:11 by joldosh          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = aaaaand
+NAME = serena
 
 SRCS = main.cpp \
 		ClapTrap.cpp \

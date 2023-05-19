@@ -6,7 +6,11 @@
 /*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 18:38:46 by dkaratae          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2023/05/17 14:35:09 by dkaratae         ###   ########.fr       */
+=======
+/*   Updated: 2023/05/18 11:00:31 by joldosh          ###   ########.fr       */
+>>>>>>> 19cbf8083f5ddbe562201ad9a944f44ce8ecaa9d
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +24,7 @@ ScavTrap::ScavTrap(void) : ClapTrap()
     _energyPoints = 50;
     _atackDamage = 20;
 }
+
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {
     std::cout << "Constructor ScavTrap with parameter called" << std::endl;
@@ -34,6 +39,7 @@ ScavTrap::ScavTrap(const ScavTrap &other) : ClapTrap(other)
     std::cout << "Copy constructor ScavTrap called" << std::endl;
 }
 
+<<<<<<< HEAD
 // ScavTrap& ScavTrap::operator = (const ScavTrap &other)
 // {
 //     std::cout << "Copy assignment operator ScavTrap called" << std::endl;
@@ -46,13 +52,47 @@ ScavTrap::ScavTrap(const ScavTrap &other) : ClapTrap(other)
 //     }
 //     return *this;
 // }
+=======
+ScavTrap& ScavTrap::operator = (const ScavTrap &other)
+{
+    std::cout << "Copy assignment operator ScavTrap called" << std::endl;
+    if (this != &other)
+    {
+        ClapTrap::operator=(other);
+    }
+    return *this;
+}
+>>>>>>> 19cbf8083f5ddbe562201ad9a944f44ce8ecaa9d
 
 ScavTrap::~ScavTrap()
 {
     std::cout << "Destructor ScavTrap called" << std::endl;
 }
 
+<<<<<<< HEAD
 // void ScavTrap::attack(const std::string &target)
 // {
 
 // }
+=======
+void ScavTrap::attack(const std::string &target)
+{
+    if (_hitPoints <= 0)
+    {
+        std::cout << "ScavTrap " << _name << " can't attack, it hasn't hitpoint" << std::endl;
+        return;
+    }
+    else if (_energyPoints <= 0)
+    {
+        std::cout << "ScavTrap " << _name << " can't attack, it hasn't energypoint" << std::endl;
+        return;
+    }
+    std::cout << "ScavTrap " << _name << " attacks " << target << ", causing " << _atackDamage << " points of damage!" << std::endl;
+    // _hitPoints = _hitPoints - _atackDamage;
+    _energyPoints--;
+}
+void ScavTrap::guardGate(void)
+{
+    std::cout << "ScavTrap " << _name << " is now in Gate keeper mode" << std::endl;
+}
+>>>>>>> 19cbf8083f5ddbe562201ad9a944f44ce8ecaa9d
