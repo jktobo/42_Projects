@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joldosh <joldosh@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 18:38:27 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/05/18 09:51:36 by joldosh          ###   ########.fr       */
+/*   Updated: 2023/05/19 22:21:55 by dkaratae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ ClapTrap::ClapTrap(void)
     _energyPoints = 10;
     _atackDamage = 0;
 }
+
 ClapTrap::ClapTrap(std::string name)
 {
     std::cout << "Constructor ClapTrap with parameter called" << std::endl;
@@ -75,7 +76,7 @@ void ClapTrap::attack(const std::string &target)
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
-        if (_hitPoints <= 0)
+    if (_hitPoints <= 0)
     {
         std::cout << "ClapTrap " << _name << " can't attack, it hasn't hitpoint" << std::endl;
         return;
