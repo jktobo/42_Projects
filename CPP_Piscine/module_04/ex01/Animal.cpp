@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/10 14:45:36 by dkaratae          #+#    #+#             */
+/*   Updated: 2023/06/10 14:45:38 by dkaratae         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Animal.hpp"
 
 Animal::Animal()
@@ -9,7 +21,7 @@ Animal::Animal(const std::string& name)
 {
     if (name.empty())
     {
-        std::cout << "The parametre Animal can't be empty!" << name << std::endl;
+        std::cout << "The parametre Animal can't be NULL!" << name << std::endl;
     }
     else
     {

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/10 14:44:55 by dkaratae          #+#    #+#             */
+/*   Updated: 2023/06/10 14:44:57 by dkaratae         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Dog.hpp"
 
 Dog::Dog()
@@ -13,22 +25,21 @@ Dog::Dog(const std::string& name)
     }
     else
     {
-        std::cout << "Constructor Animal with parameter called " << name << std::endl;
+        std::cout << "Constructor Dog with parameter called " << name << std::endl;
         _type = name;
     }
 }
 
-Dog::Dog(const Dog& other)
+Dog::Dog(const Dog& other) : Animal(other)
 {
     std::cout << "Copy constructor Dog called" << std::endl;
-    _type = other._type;
 }
 
 Dog& Dog::operator=(const Dog& other)
 {
     std::cout << "Copy assignment operator Dog called" << std::endl;
     if (this != &other)
-        _type = other._type;
+        Animal::operator=(other);
     return *this;
 }
 

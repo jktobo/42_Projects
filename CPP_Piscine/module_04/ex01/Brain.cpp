@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Brain.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/10 14:45:55 by dkaratae          #+#    #+#             */
+/*   Updated: 2023/06/10 14:45:57 by dkaratae         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Brain.hpp"
 
 Brain::Brain()
@@ -15,21 +27,14 @@ Brain& Brain::operator=(const Brain& other)
 {
     std::cout << "Copy assignment operator Brain called" << std::endl;
     if (this != &other)
-        _type = other._type;
+    {
+        for(int i = 0; i < 100; i++)
+            this->_ideas[i] = other._ideas[i];
+    }
     return *this;
 }
 
 Brain::~Brain()
 {
     std::cout << "Destructor Brain called" << std::endl;
-}
-
-std::string Brain::getType(void) const
-{
-    return _type;
-}
-
-void Brain::makeSound(void) const
-{
-    std::cout << "Makesound Brain called" << std::endl;
 }

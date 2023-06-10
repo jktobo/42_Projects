@@ -6,7 +6,7 @@
 /*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 18:38:39 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/05/19 22:58:49 by dkaratae         ###   ########.fr       */
+/*   Updated: 2023/05/31 18:38:50 by dkaratae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 int main()
 {
     ScavTrap scavTrap("Earth");
-
     scavTrap.attack("Mars");
     scavTrap.takeDamage(30);
     scavTrap.beRepaired(15);

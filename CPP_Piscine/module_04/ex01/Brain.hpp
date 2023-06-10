@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/10 14:46:01 by dkaratae          #+#    #+#             */
+/*   Updated: 2023/06/10 14:46:03 by dkaratae         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef BRAIN_HPP
 #define BRAIN_HPP
 
@@ -10,8 +22,9 @@ class Brain
         Brain();
         Brain(const Brain& other);
         Brain& operator=(const Brain& other);
-        virtual ~Brain();
-
-        std::string ideas[100];
+        ~Brain();
+        
+    private:
+        std::string _ideas[100];
 };
 #endif

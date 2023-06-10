@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joldosh <joldosh@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 18:38:34 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/05/17 09:14:50 by joldosh          ###   ########.fr       */
+/*   Updated: 2023/05/31 18:28:33 by dkaratae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ ClapTrap::ClapTrap(const ClapTrap &other)
     _hitPoints = other._hitPoints;
     _energyPoints = other._energyPoints;
     _atackDamage = other._atackDamage;
+    // *this = other;
     std::cout << "Copy constructor ClapTrap called" << std::endl;
 }
 
@@ -69,7 +70,6 @@ void ClapTrap::attack(const std::string &target)
         return;
     }
     std::cout << "ClapTrap " << _name << " attacks " << target << ", causing " << _atackDamage << " points of damage!" << std::endl;
-    // _hitPoints = _hitPoints - _atackDamage;
     _energyPoints--;
 }
 

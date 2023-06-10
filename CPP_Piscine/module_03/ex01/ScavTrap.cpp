@@ -6,11 +6,12 @@
 /*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 18:38:46 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/05/19 22:24:31 by dkaratae         ###   ########.fr       */
+/*   Updated: 2023/05/31 18:17:20 by dkaratae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
+#include "ClapTrap.hpp"
 
 ScavTrap::ScavTrap(void) : ClapTrap()
 {
@@ -21,7 +22,7 @@ ScavTrap::ScavTrap(void) : ClapTrap()
     _atackDamage = 20;
 }
 
-ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
+ScavTrap::ScavTrap(std::string name)
 {
     std::cout << "Constructor ScavTrap with parameter called" << std::endl;
     _name = name;
@@ -63,9 +64,9 @@ void ScavTrap::attack(const std::string &target)
         return;
     }
     std::cout << "ScavTrap " << _name << " attacks " << target << ", causing " << _atackDamage << " points of damage!" << std::endl;
-    // _hitPoints = _hitPoints - _atackDamage;
     _energyPoints--;
 }
+
 void ScavTrap::guardGate(void)
 {
     std::cout << "ScavTrap " << _name << " is now in Gate keeper mode" << std::endl;

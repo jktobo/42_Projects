@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joldosh <joldosh@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 18:39:11 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/05/17 18:41:22 by joldosh          ###   ########.fr       */
+/*   Updated: 2023/05/31 18:36:57 by dkaratae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap(void) : ClapTrap()
+ScavTrap::ScavTrap(void)
 {
     std::cout << "Default constructor ScavTrap called" << std::endl;
     _name = "ScavTrap_default";
@@ -20,7 +20,7 @@ ScavTrap::ScavTrap(void) : ClapTrap()
     _energyPoints = 50;
     _atackDamage = 20;
 }
-ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
+ScavTrap::ScavTrap(std::string name)
 {
     std::cout << "Constructor ScavTrap with parameter called" << std::endl;
     _name = name;
@@ -62,7 +62,6 @@ void ScavTrap::attack(const std::string &target)
         return;
     }
     std::cout << "ScavTrap " << _name << " attacks " << target << ", causing " << _atackDamage << " points of damage!" << std::endl;
-    // _hitPoints = _hitPoints - _atackDamage;
     _energyPoints--;
 }
 void ScavTrap::guardGate(void)

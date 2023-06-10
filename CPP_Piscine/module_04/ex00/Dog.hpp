@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/10 14:45:01 by dkaratae          #+#    #+#             */
+/*   Updated: 2023/06/10 14:45:03 by dkaratae         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef DOG_HPP
 #define DOG_HPP
 
@@ -6,13 +18,12 @@
 class Dog : public Animal
 {
     public:
-    Dog();
-    Dog(const std::string& name);
-    Dog(const Dog& other);
-    Dog& operator=(const Dog& other);
-    virtual ~Dog();
+        Dog();
+        Dog(const std::string& name);
+        Dog(const Dog& other);
+        Dog& operator=(const Dog& other);
+        virtual ~Dog();
 
-    std::string getType(void) const;
-    void makeSound() const;
+        void makeSound() const;
 };
 #endif

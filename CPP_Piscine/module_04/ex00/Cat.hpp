@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/10 14:44:50 by dkaratae          #+#    #+#             */
+/*   Updated: 2023/06/10 14:44:52 by dkaratae         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef CAT_HPP
 #define CAT_HPP
 
@@ -6,13 +18,12 @@
 class Cat : public Animal
 {
     public:
-    Cat();
-    Cat(const std::string& name);
-    Cat(const Cat& other);
-    Cat& operator=(const Cat& other);
-    virtual ~Cat();
+        Cat();
+        Cat(const std::string& name);
+        Cat(const Cat& other);
+        Cat& operator=(const Cat& other);
+        virtual ~Cat();
 
-    std::string getType(void) const;
-    void makeSound() const;
+        void makeSound() const;
 };
 #endif

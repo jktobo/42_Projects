@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/10 14:46:37 by dkaratae          #+#    #+#             */
+/*   Updated: 2023/06/10 14:46:39 by dkaratae         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "WrongAnimal.hpp"
 
 WrongAnimal::WrongAnimal()
@@ -7,8 +19,15 @@ WrongAnimal::WrongAnimal()
 
 WrongAnimal::WrongAnimal(const std::string& name)
 {
-    std::cout << "Constructor WrongAnimal with parameter called " << name << std::endl;
-    _type = name;
+    if (name.empty())
+    {
+        std::cout << "The parametre WrongAnimal can't be NULL!" << name << std::endl;
+    }
+    else
+    {
+        std::cout << "Constructor WrongAnimal with parameter called " << name << std::endl;
+        _type = name;
+    }
 }
 
 WrongAnimal::WrongAnimal(const WrongAnimal& other)

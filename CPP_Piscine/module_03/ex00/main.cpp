@@ -6,7 +6,7 @@
 /*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 18:38:22 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/05/19 22:22:47 by dkaratae         ###   ########.fr       */
+/*   Updated: 2023/05/31 18:33:26 by dkaratae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,9 @@
 int main()
 {
     ClapTrap clapT("Earth");
-    
     clapT.attack("Mars");
     clapT.takeDamage(4);
     clapT.beRepaired(3);
-
     
     return (0);
 }

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   WrongCat.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/10 14:46:49 by dkaratae          #+#    #+#             */
+/*   Updated: 2023/06/10 14:46:50 by dkaratae         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "WrongCat.hpp"
 
 WrongCat::WrongCat()
@@ -7,8 +19,15 @@ WrongCat::WrongCat()
 
 WrongCat::WrongCat(const std::string& name)
 {
-    std::cout << "Constructor WrongCat with parameter called " << name << std::endl;
-    _type = name;
+    if (name.empty())
+    {
+        std::cout << "The parametre WrongCat can't be NULL!" << name << std::endl;
+    }
+    else
+    {
+        std::cout << "Constructor WrongCat with parameter called " << name << std::endl;
+        _type = name;
+    }
 }
 
 WrongCat::WrongCat(const WrongCat& other)

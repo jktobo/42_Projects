@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/10 14:44:43 by dkaratae          #+#    #+#             */
+/*   Updated: 2023/06/10 14:44:46 by dkaratae         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Cat.hpp"
 
 Cat::Cat()
@@ -11,22 +23,22 @@ Cat::Cat(const std::string& name)
         std::cout << "The parametre Cat can't be empty!" << name << std::endl;
     else
     {
-        std::cout << "Constructor Animal with parameter called " << name << std::endl;
+        std::cout << "Constructor Cat with parameter called " << name << std::endl;
         _type = name;
     }
 }
 
-Cat::Cat(const Cat& other)
+Cat::Cat(const Cat& other) : Animal(other)
 {
     std::cout << "Copy constructor Cat called " << std::endl;
-    _type = other._type;
+    // _type = other._type;
 }
 
 Cat& Cat::operator=(const Cat& other)
 {
     std::cout << "Copy assignment operator Cat called" << std::endl;
     if (this != &other)
-        _type = other._type;
+        Animal::operator=(other);
     return *this;
 }
 
