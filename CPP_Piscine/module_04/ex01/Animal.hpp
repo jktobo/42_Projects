@@ -6,13 +6,14 @@
 /*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 14:45:41 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/06/10 14:45:43 by dkaratae         ###   ########.fr       */
+/*   Updated: 2023/06/10 17:06:58 by dkaratae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ANIMAL_HPP
 #define ANIMAL_HPP
 
+#include "Brain.hpp"
 #include <iostream>
 #include <string>
 
@@ -27,8 +28,10 @@ class Animal
 
     std::string getType(void) const;
     virtual void makeSound() const;
-
+    void setIdeass(std::string str) const;
     protected:
         std::string _type;
+    private:
+        Brain *_brain;
 };
 #endif

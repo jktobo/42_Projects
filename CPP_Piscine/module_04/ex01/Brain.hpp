@@ -6,7 +6,7 @@
 /*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 14:46:01 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/06/10 14:46:03 by dkaratae         ###   ########.fr       */
+/*   Updated: 2023/06/10 17:10:02 by dkaratae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,13 @@ class Brain
         Brain();
         Brain(const Brain& other);
         Brain& operator=(const Brain& other);
+        std::string* getIdeas();
+        void setIdeas(std::string str);
+        void printIdeas();
         ~Brain();
         
     private:
         std::string _ideas[100];
+        int _count;
 };
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joldosh <joldosh@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 12:53:28 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/06/10 13:49:28 by joldosh          ###   ########.fr       */
+/*   Updated: 2023/06/10 17:11:19 by dkaratae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,11 @@ int main()
             animals[i] = new Cat();
         }
     }
-
+    animals[0]->setIdeass("sleep");
+    // animals[0]->setIdeass("play");
+    // animals[0]->setIdeass("run");
+    
+    
     for (int i = 0; i < count; i++)
     {
         delete animals[i];

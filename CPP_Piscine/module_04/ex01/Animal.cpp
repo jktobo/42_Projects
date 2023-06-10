@@ -6,7 +6,7 @@
 /*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 14:45:36 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/06/10 14:45:38 by dkaratae         ###   ########.fr       */
+/*   Updated: 2023/06/10 17:13:42 by dkaratae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,12 +46,19 @@ Animal& Animal::operator=(const Animal& other)
 
 Animal::~Animal()
 {
+    if (_brain)
+        delete _brain;
     std::cout << "Destructor Animal called" << std::endl;
 }
 
 std::string Animal::getType(void) const
 {
     return _type;
+}
+
+void Animal::setIdeass(std::string str) const
+{
+    _brain->setIdeas(str);
 }
 
 void Animal::makeSound(void) const
