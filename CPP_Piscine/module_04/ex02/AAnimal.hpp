@@ -1,21 +1,31 @@
-#ifndef ANIMAL_HPP
-#define ANIMAL_HPP
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   AAnimal.hpp                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/11 17:23:06 by dkaratae          #+#    #+#             */
+/*   Updated: 2023/06/11 17:23:08 by dkaratae         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef AANIMAL_HPP
+#define AANIMAL_HPP
 
 #include <iostream>
 #include <string>
 
-class Animal
+class AAnimal
 {
     public:
-        Animal();
-        Animal(const std::string& name);
-        Animal(const Animal& other);
-        Animal& operator=(const Animal& other);
-        virtual ~Animal();
-
-        std::string getType(void) const;
-        virtual void makeSound() const = 0;
-
+    AAnimal();
+    AAnimal(const std::string& name);
+    AAnimal(const AAnimal& other);
+    AAnimal& operator=(const AAnimal& other);
+    virtual ~AAnimal();
+    std::string getType(void) const;
+    virtual void makeSound() const = 0;
     protected:
         std::string _type;
 };

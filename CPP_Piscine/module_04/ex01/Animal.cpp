@@ -6,7 +6,7 @@
 /*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 14:45:36 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/06/10 17:13:42 by dkaratae         ###   ########.fr       */
+/*   Updated: 2023/06/11 17:29:58 by dkaratae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,18 @@ Animal::Animal()
     std::cout << "Default constructor Animal called" << std::endl;
 }
 
-Animal::Animal(const std::string& name)
-{
-    if (name.empty())
-    {
-        std::cout << "The parametre Animal can't be NULL!" << name << std::endl;
-    }
-    else
-    {
-        std::cout << "Constructor Animal with parameter called " << name << std::endl;
-        _type = name;
-    }
-}
+// Animal::Animal(const std::string& name)
+// {
+//     if (name.empty())
+//     {
+//         std::cout << "The parametre Animal can't be NULL!" << name << std::endl;
+//     }
+//     else
+//     {
+//         std::cout << "Constructor Animal with parameter called " << name << std::endl;
+//         _type = name;
+//     }
+// }
 
 Animal::Animal(const Animal& other)
 {
@@ -46,19 +46,12 @@ Animal& Animal::operator=(const Animal& other)
 
 Animal::~Animal()
 {
-    if (_brain)
-        delete _brain;
     std::cout << "Destructor Animal called" << std::endl;
 }
 
 std::string Animal::getType(void) const
 {
     return _type;
-}
-
-void Animal::setIdeass(std::string str) const
-{
-    _brain->setIdeas(str);
 }
 
 void Animal::makeSound(void) const

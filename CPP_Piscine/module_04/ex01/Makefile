@@ -6,7 +6,7 @@
 #    By: joldosh <joldosh@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/19 12:53:30 by dkaratae          #+#    #+#              #
-#    Updated: 2023/06/09 10:27:03 by joldosh          ###   ########.fr        #
+#    Updated: 2023/06/11 14:26:01 by joldosh          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,10 +14,8 @@ NAME = polymorphism
 
 SRCS = main.cpp \
 		Animal.cpp \
-		WrongAnimal.cpp \
 		Dog.cpp \
 		Cat.cpp \
-		WrongCat.cpp \
 		Brain.cpp \
 		
 OBJS = $(SRCS:.cpp=.o)

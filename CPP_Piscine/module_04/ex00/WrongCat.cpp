@@ -6,7 +6,7 @@
 /*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 14:45:21 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/06/10 14:45:23 by dkaratae         ###   ########.fr       */
+/*   Updated: 2023/06/11 17:32:45 by dkaratae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,10 @@ WrongCat::WrongCat(const std::string& name)
     }
 }
 
-WrongCat::WrongCat(const WrongCat& other)
+WrongCat::WrongCat(const WrongCat& other) : WrongAnimal(other)
 {
     std::cout << "Copy constructor WrongCat called" << std::endl;
-    _type = other._type;
+    // _type = other._type;
 }
 
 WrongCat& WrongCat::operator=(const WrongCat& other)

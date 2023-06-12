@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
+/*   By: joldosh <joldosh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 14:46:08 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/06/10 14:46:09 by dkaratae         ###   ########.fr       */
+/*   Updated: 2023/06/11 14:05:18 by joldosh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,11 @@ Cat::Cat()
 //     }
 // }
 
-Cat::Cat(const Cat& other) : Animal(other), _brain(new Brain(*other._brain))
+Cat::Cat(const Cat& other) : Animal(other)//, _brain(new Brain(*other._brain))
 {
     std::cout << "Copy constructor Cat called " << std::endl;
     // _type = other._type;
-    // _brain = new Brain(*other._brain);
+    _brain = new Brain(*other._brain);
 }
 
 Cat& Cat::operator=(const Cat& other)
@@ -42,7 +42,9 @@ Cat& Cat::operator=(const Cat& other)
     std::cout << "Copy assignment operator Cat called" << std::endl;
     if (this != &other)
     {
-        _type = other._type;
+        Animal::operator=(other);
+        if (_brain != NULL)
+                delete _brain;
         _brain = new Brain(*other._brain);
     }
     return *this;
@@ -58,4 +60,9 @@ Cat::~Cat()
 void Cat::makeSound(void) const
 {
     std::cout << "MYEOYY!" << std::endl;
+}
+
+Brain *Cat::getBrain() const
+{
+    return _brain;
 }

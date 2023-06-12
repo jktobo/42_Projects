@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
+/*   By: joldosh <joldosh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 14:46:01 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/06/10 17:10:02 by dkaratae         ###   ########.fr       */
+/*   Updated: 2023/06/11 13:30:51 by joldosh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,8 @@ class Brain
         Brain();
         Brain(const Brain& other);
         Brain& operator=(const Brain& other);
-        std::string* getIdeas();
-        void setIdeas(std::string str);
-        void printIdeas();
+        void setIdea(std::string str);
+        void printIdeas() const;
         ~Brain();
         
     private:

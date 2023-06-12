@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/11 17:23:15 by dkaratae          #+#    #+#             */
+/*   Updated: 2023/06/11 17:29:34 by dkaratae         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Animal.hpp"
 
 Animal::Animal()
@@ -5,18 +17,18 @@ Animal::Animal()
     std::cout << "Default constructor Animal called" << std::endl;
 }
 
-Animal::Animal(const std::string& name)
-{
-    if (name.empty())
-    {
-        std::cout << "The parametre Animal can't be NULL!" << name << std::endl;
-    }
-    else
-    {
-        std::cout << "Constructor Animal with parameter called " << name << std::endl;
-        _type = name;
-    }
-}
+// Animal::Animal(const std::string& name)
+// {
+//     if (name.empty())
+//     {
+//         std::cout << "The parametre Animal can't be NULL!" << name << std::endl;
+//     }
+//     else
+//     {
+//         std::cout << "Constructor Animal with parameter called " << name << std::endl;
+//         _type = name;
+//     }
+// }
 
 Animal::Animal(const Animal& other)
 {
@@ -42,7 +54,7 @@ std::string Animal::getType(void) const
     return _type;
 }
 
-void Animal::makeSound(void) const
-{
-    std::cout << "Makesound Animal called" << std::endl;
-}
+// void Animal::makeSound(void) const
+// {
+//     std::cout << "Makesound Animal called" << std::endl;
+// }

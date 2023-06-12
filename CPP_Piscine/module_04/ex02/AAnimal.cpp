@@ -1,48 +1,60 @@
-#include "Animal.hpp"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   AAnimal.cpp                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/11 17:22:58 by dkaratae          #+#    #+#             */
+/*   Updated: 2023/06/11 17:29:51 by dkaratae         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-Animal::Animal()
+#include "AAnimal.hpp"
+
+AAnimal::AAnimal()
 {
-    std::cout << "Default constructor Animal called" << std::endl;
+    std::cout << "Default constructor AAnimal called" << std::endl;
 }
 
-Animal::Animal(const std::string& name)
-{
-    if (name.empty())
-    {
-        std::cout << "The parametre Animal can't be NULL!" << name << std::endl;
-    }
-    else
-    {
-        std::cout << "Constructor Animal with parameter called " << name << std::endl;
-        _type = name;
-    }
-}
+// AAnimal::AAnimal(const std::string& name)
+// {
+//     if (name.empty())
+//     {
+//         std::cout << "The parametre AAnimal can't be NULL!" << name << std::endl;
+//     }
+//     else
+//     {
+//         std::cout << "Constructor AAnimal with parameter called " << name << std::endl;
+//         _type = name;
+//     }
+// }
 
-Animal::Animal(const Animal& other)
+AAnimal::AAnimal(const AAnimal& other)
 {
-    std::cout << "Copy constructor Animal called" << std::endl;
+    std::cout << "Copy constructor AAnimal called" << std::endl;
     _type = other._type;
 }
 
-Animal& Animal::operator=(const Animal& other)
+AAnimal& AAnimal::operator=(const AAnimal& other)
 {
-    std::cout << "Copy assignment operator Animal called" << std::endl;
+    std::cout << "Copy assignment operator AAnimal called" << std::endl;
     if (this != &other)
         _type = other._type;
     return *this;
 }
 
-Animal::~Animal()
+AAnimal::~AAnimal()
 {
-    std::cout << "Destructor Animal called" << std::endl;
+    std::cout << "Destructor AAnimal called" << std::endl;
 }
 
-std::string Animal::getType(void) const
+std::string AAnimal::getType(void) const
 {
     return _type;
 }
 
-// void Animal::makeSound(void) const
+// void AAnimal::makeSound(void) const
 // {
-//     std::cout << "Makesound Animal called" << std::endl;
+//     std::cout << "Makesound AAnimal called" << std::endl;
 // }
