@@ -6,7 +6,7 @@
 /*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 18:42:24 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/10/24 16:18:22 by dkaratae         ###   ########.fr       */
+/*   Updated: 2023/10/24 16:38:14 by dkaratae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,12 @@ Bureaucrat::Bureaucrat(int grade) : _name("Default") {
 	catch (Bureaucrat::GradeTooHighException &e)
 	{
 		std::cerr << "Constructions " << getName() << " failed" << e.what() << " Grade not set to 1" << getGrade() << std::endl;
-		_grade = 1;
+		// _grade = 1;
 	}
 	catch (Bureaucrat::GradeTooLowException &e)
 	{
 		std::cerr << "Constructions " << getName() << " failed" << e.what() << " Grade not set to 150" << getGrade() << std::endl; 
-		_grade = 150;
+		// _grade = 150;
 	}
 }
 
