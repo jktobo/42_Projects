@@ -6,7 +6,7 @@
 /*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 18:42:21 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/10/23 16:09:58 by dkaratae         ###   ########.fr       */
+/*   Updated: 2023/10/24 16:11:51 by dkaratae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ class Bureaucrat {
 		~Bureaucrat();
 
 		//Setters
-		void setName(std::string name);
-		void setGrade(int grade);
+		// void setName(std::string name);
+		// void setGrade(int grade);
 
 		//Getters
 		std::string getName();
@@ -56,4 +56,4 @@ class Bureaucrat {
 };
 	//Overload operator <<
 	std::ostream &operator << (std::ostream &os, const Bureaucrat &print);
-#endif;
+#endif
