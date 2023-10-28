@@ -6,7 +6,7 @@
 /*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 18:42:21 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/10/24 16:11:51 by dkaratae         ###   ########.fr       */
+/*   Updated: 2023/10/28 16:54:05 by dkaratae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #define BUREAUCRAT_HPP
 
 #include <exception>
-#include <ostream>
+// #include <ostream>
 #include <string>
 #include <iostream>
 
@@ -26,19 +26,15 @@ class Bureaucrat {
 	
 	public:
 		Bureaucrat();
-		Bureaucrat(int grade);
-		Bureaucrat(std::string name);
 		Bureaucrat(std::string name, int grade);
-		Bureaucrat &operator == (const Bureaucrat &other);
+		Bureaucrat &operator==(const Bureaucrat &other);
+		Bureaucrat(const Bureaucrat &other);
+		// Bureaucrat &operator=(const Bureaucrat &other);
 		~Bureaucrat();
 
-		//Setters
-		// void setName(std::string name);
-		// void setGrade(int grade);
-
 		//Getters
-		std::string getName();
-		int getGrade();
+		std::string getName() const;
+		int getGrade() const;
 		
 		//Metods
 		void incGrade();
@@ -55,5 +51,6 @@ class Bureaucrat {
 		};
 };
 	//Overload operator <<
-	std::ostream &operator << (std::ostream &os, const Bureaucrat &print);
+	std::ostream& operator<<(std::ostream &os, const Bureaucrat &print);
+
 #endif
