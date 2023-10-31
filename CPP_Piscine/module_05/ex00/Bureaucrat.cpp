@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
+/*   By: joldosh <joldosh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 18:42:24 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/10/28 16:53:51 by dkaratae         ###   ########.fr       */
+/*   Updated: 2023/10/31 12:39:40 by joldosh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,18 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade)
 		_grade = grade;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat &other) {
-	*this = other;
-}
-
-// Bureaucrat::Bureaucrat &operator=(const Bureaucrat &other) {
-	
+// Bureaucrat::Bureaucrat(const Bureaucrat &other) {
+// 	*this = other;
 // }
+Bureaucrat::Bureaucrat(const Bureaucrat& other) : _name(other._name), _grade(other._grade) {}
+
+Bureaucrat &Bureaucrat::operator=(const Bureaucrat &other) {
+	if (this != &other) {
+		const_cast<std::string&>(this->_name) = other._name;
+		this->_grade = other._grade;
+	}
+	return (*this);
+}
 
 const char* Bureaucrat::GradeTooHighException::what() const throw() {
 	return "Grade is high!";

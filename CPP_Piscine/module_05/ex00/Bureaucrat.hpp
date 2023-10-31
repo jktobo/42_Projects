@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
+/*   By: joldosh <joldosh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 18:42:21 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/10/28 16:54:05 by dkaratae         ###   ########.fr       */
+/*   Updated: 2023/10/31 13:13:53 by joldosh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,13 @@
 #define BUREAUCRAT_HPP
 
 #include <exception>
-// #include <ostream>
 #include <string>
 #include <iostream>
 
 class Bureaucrat {
 
 	private:
-		const std::string _name;
+		std::string const _name;
 		int _grade;
 	
 	public:
@@ -29,7 +28,7 @@ class Bureaucrat {
 		Bureaucrat(std::string name, int grade);
 		Bureaucrat &operator==(const Bureaucrat &other);
 		Bureaucrat(const Bureaucrat &other);
-		// Bureaucrat &operator=(const Bureaucrat &other);
+		Bureaucrat &operator=(const Bureaucrat &other);
 		~Bureaucrat();
 
 		//Getters
