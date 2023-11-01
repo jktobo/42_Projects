@@ -6,30 +6,48 @@
 /*   By: joldosh <joldosh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 18:43:56 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/10/31 13:23:12 by joldosh          ###   ########.fr       */
+/*   Updated: 2023/10/31 15:14:37 by joldosh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FORM_HPP
 #define FORM_HPP
 
+#include "Bureaucrat.hpp"
 #include <string>
+
 
 class Form
 {
-private:
-    std::string const _name;
-    bool _sign;
-    int const gradeSign;
-    int const gradeExec; 
-public:
-    Form(/* args */);
-    ~Form();
+    private:
+        std::string const _name;
+        bool _sign;
+        int const _gradeSign;
+        int const _gradeExec; 
+    public:
+        Form();
+        Form(std::string name, int gradeSign, int gradeExec);
+        ~Form();
 
-    class GradeTooHighExeption : public std::exception {
-        public:
-            virtual const char *what() const throw(); 
-    };
+        //Getters
+        std::string getName();
+        bool getSign();
+        int getGradeSign();
+        int getGradeExec();
+        
+        //Metods
+        void beSigned(Bureaucrat &bureaucrat);
+        
+        //Created class for execption
+        class GradeTooHighExeption : public std::exception {
+            public:
+                virtual const char *what() const throw(); 
+        };
+        class GradeTooLowExeption : public std::exception {
+            public:
+                virtual const char *what() const throw(); 
+        };
 };
+	std::ostream& operator<<(std::ostream &os, const Form &print);
 
 #endif
