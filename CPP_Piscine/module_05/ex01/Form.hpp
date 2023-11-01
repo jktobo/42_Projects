@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joldosh <joldosh@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 18:43:56 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/10/31 15:14:37 by joldosh          ###   ########.fr       */
+/*   Updated: 2023/11/01 13:06:41 by dkaratae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,10 @@
 #define FORM_HPP
 
 #include "Bureaucrat.hpp"
+
 #include <string>
 
-
+class Bureaucrat;
 class Form
 {
     private:
