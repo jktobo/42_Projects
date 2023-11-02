@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joldosh <joldosh@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 18:43:58 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/11/02 13:15:43 by joldosh          ###   ########.fr       */
+/*   Updated: 2023/11/02 16:42:10 by dkaratae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,20 @@ Form::Form(std::string const name, int const gradeSign, int const gradeExec) : _
         throw Form::GradeTooHighExeption();
     else if (_gradeSign > 150 || _gradeExec > 150)
         throw Form::GradeTooLowExeption();
+}
+
+Form::Form(Form const &copy) : _name(copy._name), _sign(copy._sign), _gradeSign(copy._gradeSign), _gradeExec(copy._gradeExec) {
+	
+}
+
+Form &Form::operator==(Form &other) {
+	if (this != &other) {
+		const_cast<std::string&>(this->_name) = other._name;
+		const_cast<bool&>(this->_sign) = other._sign;
+		const_cast<int&>(this->_gradeSign) = other._gradeSign;
+		const_cast<int&>(this->_gradeExec) = other._gradeExec;
+	}
+	return (*this);
 }
 
 Form::~Form() {}

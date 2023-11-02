@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joldosh <joldosh@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 18:43:56 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/11/02 11:44:33 by joldosh          ###   ########.fr       */
+/*   Updated: 2023/11/02 15:48:01 by dkaratae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define FORM_HPP
 
 #include "Bureaucrat.hpp"
+#include <istream>
 #include <string>
 
 class Bureaucrat;
@@ -27,7 +28,8 @@ class Form
     public:
         Form();
         Form(std::string name, int gradeSign, int gradeExec);
-        // Form(Form const &copy);
+        Form(Form const &copy);
+        Form &operator==(Form &other);
         ~Form();
 
         //Getters
