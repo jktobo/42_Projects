@@ -6,7 +6,7 @@
 /*   By: joldosh <joldosh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 18:42:24 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/10/31 12:55:43 by joldosh          ###   ########.fr       */
+/*   Updated: 2023/11/02 13:34:45 by joldosh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,27 +51,31 @@ int Bureaucrat::getGrade() const{
 }
 
 void Bureaucrat::incGrade() {
-	try {
-		if (_grade <= 1)
-			throw Bureaucrat::GradeTooHighException();
-		else
-		 	_grade--;
-	} catch (const std::exception& e) {
-		std::cerr << e.what() << std::endl;
-	}
+	if (_grade <= 1)
+		throw Bureaucrat::GradeTooHighException();
+	else
+		_grade--;
 }
 
 void Bureaucrat::decGrade() {
-	try {
-		if (_grade >= 150)
-			throw Bureaucrat::GradeTooLowException();
-		else
-		 	_grade++;
-	} catch (const std::exception& e) {
-		std::cerr << e.what() << std::endl;
-	}
+	if (_grade >= 150)
+		throw Bureaucrat::GradeTooLowException();
+	else
+		_grade++;
 }
 
+void Bureaucrat::signForm(Form &form) {
+	try
+	{
+		form.beSigned(*this);
+		std::cout <<  this->getName() << " signed " << form.getName() << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << this->getName() << " couldn’t sign "<< form.getName() << " because " << e.what() << std::endl;
+	}
+	
+}
 Bureaucrat:: ~Bureaucrat() {}
 
 std::ostream &operator << (std::ostream &os, const Bureaucrat &print) {
