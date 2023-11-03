@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
+/*   By: joldosh <joldosh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 18:43:56 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/11/02 15:48:01 by dkaratae         ###   ########.fr       */
+/*   Updated: 2023/11/03 15:07:45 by joldosh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ class Form
         Form();
         Form(std::string name, int gradeSign, int gradeExec);
         Form(Form const &copy);
-        Form &operator==(Form &other);
+        Form &operator=(Form &other);
         ~Form();
 
         //Getters

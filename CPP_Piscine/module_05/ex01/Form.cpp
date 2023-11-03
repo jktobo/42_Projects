@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
+/*   By: joldosh <joldosh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 18:43:58 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/11/02 16:42:10 by dkaratae         ###   ########.fr       */
+/*   Updated: 2023/11/03 15:08:08 by joldosh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ Form::Form(Form const &copy) : _name(copy._name), _sign(copy._sign), _gradeSign(
 	
 }
 
-Form &Form::operator==(Form &other) {
+Form &Form::operator=(Form &other) {
 	if (this != &other) {
 		const_cast<std::string&>(this->_name) = other._name;
 		const_cast<bool&>(this->_sign) = other._sign;
