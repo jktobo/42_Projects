@@ -6,7 +6,7 @@
 /*   By: joldosh <joldosh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 18:45:05 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/11/03 15:13:14 by joldosh          ###   ########.fr       */
+/*   Updated: 2023/11/04 10:52:43 by joldosh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ AForm::AForm(AForm const &copy) : _name(copy._name), _sign(copy._sign), _gradeSi
 	
 }
 
-AForm &AForm::operator=(AForm &other) {
+AForm &AForm::operator=(AForm const &other) {
 	if (this != &other) {
 		const_cast<std::string&>(this->_name) = other._name;
 		const_cast<bool&>(this->_sign) = other._sign;
@@ -73,6 +73,9 @@ const char* AForm::GradeTooHighExeption::what() const throw() {
 
 const char* AForm::GradeTooLowExeption::what() const throw() {
     return "AForm Grade is low!";
+}
+const char* AForm::TheFormIsNotSigned::what() const throw() {
+    return "The Form isn't signed!";
 }
 
 std::ostream& operator<<(std::ostream &os, const AForm& print) {

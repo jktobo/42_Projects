@@ -6,7 +6,7 @@
 /*   By: joldosh <joldosh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 18:42:21 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/11/03 15:13:38 by joldosh          ###   ########.fr       */
+/*   Updated: 2023/11/03 21:39:33 by joldosh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ class Bureaucrat {
 	public:
 		Bureaucrat();
 		Bureaucrat(std::string name, int grade);
-		Bureaucrat(const Bureaucrat &other);
-		Bureaucrat &operator=(const Bureaucrat &other);
+		Bureaucrat(Bureaucrat const &other);
+		Bureaucrat &operator=(Bureaucrat const &other);
 		~Bureaucrat();
 
 		//Getters
@@ -41,6 +41,7 @@ class Bureaucrat {
 		void incGrade();
 		void decGrade();
 		void signForm(AForm &form);
+		void executeForm(AForm const & form);
 		
 		class GradeTooHighException : public std::exception {
 			public:

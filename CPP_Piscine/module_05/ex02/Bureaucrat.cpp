@@ -6,7 +6,7 @@
 /*   By: joldosh <joldosh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 18:42:24 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/11/03 15:13:54 by joldosh          ###   ########.fr       */
+/*   Updated: 2023/11/04 10:49:25 by joldosh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,6 @@ void Bureaucrat::signForm(AForm &form) {
 	{
 		std::cerr << this->getName() << " couldn’t sign "<< form.getName() << " because " << e.what() << std::endl;
 	}
-	
 }
 Bureaucrat:: ~Bureaucrat() {}
 
