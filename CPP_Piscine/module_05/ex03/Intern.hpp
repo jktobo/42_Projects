@@ -3,10 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   Intern.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
+/*   By: joldosh <joldosh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 18:47:09 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/06/13 18:47:10 by dkaratae         ###   ########.fr       */
+/*   Updated: 2023/11/04 15:25:13 by joldosh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef INTERN_HPP
+#define INTERN_HPP
+
+class Intern {
+    private:
+
+    public:
+    
+};
+
+#endif
