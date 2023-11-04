@@ -6,7 +6,7 @@
 /*   By: joldosh <joldosh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 18:42:32 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/11/04 14:07:57 by joldosh          ###   ########.fr       */
+/*   Updated: 2023/11/04 14:11:38 by joldosh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,19 +19,19 @@
 
 int main()
 {
-	// try
-	// {
-    //     Bureaucrat me("Zhun", 146); // все подписывает и выполняет. 140 - подпишет но не выполнит. 150 - не подпишет и не выполнит
-    //     ShrubberyCreationForm form_sh("home"); // 145-sign, 137-exec
-    //     std::cout << form_sh << std::endl;
-    //     me.signForm(form_sh); // подписать shrubbery
-    //     std::cout << std::endl << form_sh << std::endl;
-	// 	form_sh.execute(me);
-	// }
-    // catch(const std::exception& e)
-    // {
-    //     std::cerr << e.what() << '\n';
-    // }
+	try
+	{
+        Bureaucrat me("Zhun", 146); // все подписывает и выполняет. 140 - подпишет но не выполнит. 150 - не подпишет и не выполнит
+        ShrubberyCreationForm form_sh("home"); // 145-sign, 137-exec
+        std::cout << form_sh << std::endl;
+        me.signForm(form_sh); // подписать shrubbery
+        std::cout << std::endl << form_sh << std::endl;
+		form_sh.execute(me);
+	}
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
 
     // try
 	// {
