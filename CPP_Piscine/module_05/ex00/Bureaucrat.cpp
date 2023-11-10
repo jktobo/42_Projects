@@ -3,16 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joldosh <joldosh@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 18:42:24 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/11/02 13:34:10 by joldosh          ###   ########.fr       */
+/*   Updated: 2023/11/10 12:05:00 by dkaratae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-// #include <exception>
-// #include <functional>
 
 Bureaucrat::Bureaucrat() : _name("Default"), _grade(150) {
 	std::cout << "Called defalult constructor with name " << getName() << " and grade " << getGrade() << std::endl;
@@ -30,7 +28,9 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade)
 // Bureaucrat::Bureaucrat(const Bureaucrat &other) {
 // 	*this = other;
 // }
-Bureaucrat::Bureaucrat(const Bureaucrat& other) : _name(other._name), _grade(other._grade) {}
+Bureaucrat::Bureaucrat(const Bureaucrat& other) : _name(other._name), _grade(other._grade) {
+	
+}
 
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &other) {
 	if (this != &other) {
@@ -69,7 +69,9 @@ void Bureaucrat::decGrade() {
 		_grade++;
 }
 
-Bureaucrat:: ~Bureaucrat() {}
+Bureaucrat:: ~Bureaucrat() {
+	
+}
 
 std::ostream &operator << (std::ostream &os, const Bureaucrat &print) {
 	os << print.getName() << " " << print.getGrade() << std::endl;

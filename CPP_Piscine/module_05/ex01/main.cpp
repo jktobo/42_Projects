@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joldosh <joldosh@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 18:42:26 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/11/10 09:53:29 by joldosh          ###   ########.fr       */
+/*   Updated: 2023/11/10 12:14:35 by dkaratae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,12 @@
 #include "Form.hpp"
 
 int main(void) {
+    
+    Form task("Fiscal", 80, 42);
+    
+    Bureaucrat buroc1("Burcat1",81);
     try
     {
-        Form task("Fiscal", 80, 42);
-		Bureaucrat buroc1("Burcat1",79);
 		buroc1.signForm(task);
 		std::cout << task;
 		std::cout << buroc1;	
@@ -26,5 +28,17 @@ int main(void) {
     {
         std::cerr << e.what() << '\n';
     }
+    
+    // Bureaucrat buroc2("Burcat2",79);
+    // try
+    // {
+	// 	buroc2.signForm(task);
+	// 	std::cout << task;
+	// 	std::cout << buroc2;	
+    // }
+    // catch(const std::exception& e)
+    // {
+    //     std::cerr << e.what() << '\n';
+    // }
     return (0);
 }

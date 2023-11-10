@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joldosh <joldosh@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 18:42:24 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/11/04 13:51:09 by joldosh          ###   ########.fr       */
+/*   Updated: 2023/11/10 12:35:08 by dkaratae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ void Bureaucrat::signForm(AForm &form) {
 void Bureaucrat::executeForm(AForm const &form) {
 	if (!form.getSign())
         throw AForm::TheFormIsNotSigned();
-    if (this->getGrade() > form.getGradeExec())
+	if (this->getGrade() > form.getGradeExec())
         throw AForm::GradeTooLowExeption();
 	std::cout << this->getName() << " executed " << form.getName() << std::endl;
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joldosh <joldosh@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 18:42:18 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/11/10 09:53:42 by joldosh          ###   ########.fr       */
+/*   Updated: 2023/11/10 12:04:28 by dkaratae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,27 @@
 
 int main()
 {
+	Bureaucrat buroc1("Burcat1", 2);
 	try {
-		Bureaucrat buroc1("Burcat1", 2);
+		std::cout << buroc1 << std::endl;
 		buroc1.incGrade();
-		Bureaucrat buroc2("Burcat2", 149);
+		std::cout << buroc1 << std::endl;
+		buroc1.incGrade();
+	}
+	catch (const std::exception &e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+	
+	Bureaucrat buroc2("Burcat1", 149);
+	try {
+		std::cout << buroc2 << std::endl;
 		buroc2.decGrade();
+		std::cout << buroc2 << std::endl;
+		buroc2.decGrade();
+		std::cout << buroc2 << std::endl;
+		buroc2.decGrade();
+		std::cout << buroc2 << std::endl;
 	}
 	catch (const std::exception &e)
 	{

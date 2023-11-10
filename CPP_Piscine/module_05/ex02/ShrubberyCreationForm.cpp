@@ -6,11 +6,12 @@
 /*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 18:46:24 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/11/10 11:36:17 by dkaratae         ###   ########.fr       */
+/*   Updated: 2023/11/10 12:53:11 by dkaratae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
+#include <string>
 
 ShrubberyCreationForm::ShrubberyCreationForm(void) : AForm("ShrubberyCreationForm Default constructor", 145, 137), _target("target") {
     
@@ -36,6 +37,7 @@ ShrubberyCreationForm::~ShrubberyCreationForm() {
 
 void ShrubberyCreationForm::execute(Bureaucrat &executor) const {
 
+    std::string fileName = _target + "_shrubbery";
     if (!this->getSign())
         throw AForm::TheFormIsNotSigned();
     // throw "The ShrubberyCreationForm isn't signed!!!";
@@ -44,7 +46,7 @@ void ShrubberyCreationForm::execute(Bureaucrat &executor) const {
     if (executor.getGrade() > this->getGradeExec())
         throw AForm::GradeTooLowExeption();
     
-    std::ofstream ofs(_target + "_shrubbery");
+    std::ofstream ofs(fileName.c_str());
     if (!ofs.is_open()) {
         throw AForm::TheFileNotOpen();
     }

@@ -6,7 +6,7 @@
 /*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 18:45:12 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/11/10 11:20:03 by dkaratae         ###   ########.fr       */
+/*   Updated: 2023/11/10 12:38:49 by dkaratae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #define FORM_HPP
 
 #include "Bureaucrat.hpp"
-#include <istream>
+#include <iostream>
 #include <string>
 
 class Bureaucrat;
