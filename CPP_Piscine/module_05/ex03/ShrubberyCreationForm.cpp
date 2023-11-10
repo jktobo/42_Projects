@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joldosh <joldosh@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 18:46:24 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/11/04 14:30:31 by joldosh          ###   ########.fr       */
+/*   Updated: 2023/11/10 11:36:14 by dkaratae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,16 @@ void ShrubberyCreationForm::execute(Bureaucrat &executor) const {
 
     if (!this->getSign())
         throw AForm::TheFormIsNotSigned();
-      // throw "The ShrubberyCreationForm isn't signed!!!";
+    // throw "Th  e ShrubberyCreationForm isn't signed!!!";
     // std::cout << "executor.getGrade\t" << executor.getGrade()<< std::endl <<
     // "this->getGradeExec\t" << this->getGradeExec() << std::endl;
     if (executor.getGrade() > this->getGradeExec())
         throw AForm::GradeTooLowExeption();
     
     std::ofstream ofs(_target + "_shrubbery");
+    if (!ofs.is_open()) {
+        throw AForm::TheFileNotOpen();
+    }
     ofs << "                                            .\n\
                                               .         ;  \n\
                  .              .              ;%     ;;   \n\

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joldosh <joldosh@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 18:45:05 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/11/09 23:59:58 by joldosh          ###   ########.fr       */
+/*   Updated: 2023/11/10 11:35:27 by dkaratae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,9 @@ const char* AForm::TheFormIsNotSigned::what() const throw() {
 const char* AForm::TheFormIsNotExist::what() const throw() {
     return "The Form doesn't exist!";
 }
-
+const char* AForm::TheFileNotOpen::what() const throw() {
+    return "The File didn't open!";
+}
 std::ostream& operator<<(std::ostream &os, const AForm& print) {
     os << "Form name - " << print.getName() << std::endl 
         << print.getName() << " Grade to sign " << print.getGradeSign() << std::endl

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joldosh <joldosh@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 18:45:12 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/11/10 09:21:30 by joldosh          ###   ########.fr       */
+/*   Updated: 2023/11/10 11:35:05 by dkaratae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,10 @@ class AForm
                 virtual const char *what() const throw(); 
         };
         class TheFormIsNotExist : public std::exception {
+            public:
+                virtual const char *what() const throw(); 
+        };
+        class TheFileNotOpen : public std::exception {
             public:
                 virtual const char *what() const throw(); 
         };

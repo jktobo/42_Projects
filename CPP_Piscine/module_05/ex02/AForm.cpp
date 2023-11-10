@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joldosh <joldosh@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 18:45:05 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/11/04 10:52:43 by joldosh          ###   ########.fr       */
+/*   Updated: 2023/11/10 11:21:26 by dkaratae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,9 @@ const char* AForm::GradeTooLowExeption::what() const throw() {
 }
 const char* AForm::TheFormIsNotSigned::what() const throw() {
     return "The Form isn't signed!";
+}
+const char* AForm::TheFileNotOpen::what() const throw() {
+    return "The File didn't open!";
 }
 
 std::ostream& operator<<(std::ostream &os, const AForm& print) {

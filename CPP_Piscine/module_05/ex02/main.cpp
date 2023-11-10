@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joldosh <joldosh@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 18:42:32 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/11/10 10:00:04 by joldosh          ###   ########.fr       */
+/*   Updated: 2023/11/10 11:22:50 by dkaratae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 int main()
 {
-    Bureaucrat buroc1("Burcat1", 140);
+    Bureaucrat buroc1("Burcat1", 130);
     ShrubberyCreationForm Shrub_form("Garden");
 	try
 	{
@@ -33,33 +33,32 @@ int main()
         std::cerr << e.what() << '\n';
     }
 
-    // try
-	// {
-    //     Bureaucrat me2("Denis", 40);
-    //     RobotomyRequestForm form_rob("Roba");//72- sign, 45 -exec
-    //     me2.signForm(form_rob);
-    //     std::cout << std::endl << form_rob << std::endl;
-	// 	form_rob.execute(me2);
-	// }
-	// catch (std::exception & ex)
-	// {
-	// 	std::cout << ex.what() << std::endl;
-	// }
-
-
+    // Bureaucrat buroc2("Burcat1", 73);
+    // RobotomyRequestForm Robot_form("Garden");
 	// try
 	// {
-    //     Bureaucrat me3("Denis", 4);
-    //     PresidentialPardonForm form_pres("Chelovek");//25- sign, 5 -exec
-    //     me3.signForm(form_pres);
-    //     me3.executeForm(form_pres);
-    //     std::cout << std::endl << form_pres << std::endl;
-	// 	form_pres.execute(me3);
+    //     // std::cout << Robot_form << std::endl;
+    //     buroc2.signForm(Robot_form);
+    //     std::cout << std::endl << Robot_form << std::endl;
+	// 	Robot_form.execute(buroc2);
 	// }
-	// catch (std::exception & ex)
+    // catch(const std::exception& e)
+    // {
+    //     std::cerr << e.what() << '\n';
+    // }
+    
+    // Bureaucrat buroc3("Burcat1", 3);
+    // PresidentialPardonForm President_form("Garden");
+	// try
 	// {
-	// 	std::cout << ex.what() << std::endl;
+    //     std::cout << President_form << std::endl;
+    //     buroc3.signForm(President_form);
+	// 	President_form.execute(buroc3);
+    //     std::cout << std::endl << President_form << std::endl;
 	// }
-    // return (0);
-
+    // catch(const std::exception& e)
+    // {
+    //     std::cerr << e.what() << '\n';
+    // }
+    return (0);
 }

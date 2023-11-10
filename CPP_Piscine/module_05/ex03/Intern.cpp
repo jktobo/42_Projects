@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Intern.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joldosh <joldosh@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 18:47:11 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/11/10 09:27:08 by joldosh          ###   ########.fr       */
+/*   Updated: 2023/11/10 11:29:54 by dkaratae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ AForm *Intern::makeForm(std::string formName, std::string formTarget) {
     for (int i = 0; i <= 3; i++)
     {
         if (_formName[i] == formName) {
-            return ((this->*runForm[i])(formTarget));
             std::cout << "Intern creates " << formName << std::endl;
+            return ((this->*runForm[i])(formTarget));
         }
     }
     throw AForm::TheFormIsNotExist();

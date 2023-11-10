@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: joldosh <joldosh@student.42.fr>            +#+  +:+       +#+         #
+#    By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/13 18:42:34 by dkaratae          #+#    #+#              #
-#    Updated: 2023/11/04 13:31:49 by joldosh          ###   ########.fr        #
+#    Updated: 2023/11/10 11:10:31 by dkaratae         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,6 @@ clean:
 
 fclean: clean
 	rm -f $(NAME)
-	rm -f *_shrubbery
+	# rm -f *_shrubbery
 
 re: fclean all
