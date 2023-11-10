@@ -6,7 +6,7 @@
 /*   By: joldosh <joldosh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 18:43:58 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/11/03 15:08:08 by joldosh          ###   ########.fr       */
+/*   Updated: 2023/11/10 09:45:15 by joldosh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ Form::Form(Form const &copy) : _name(copy._name), _sign(copy._sign), _gradeSign(
 	
 }
 
-Form &Form::operator=(Form &other) {
+Form &Form::operator=(Form const &other) {
 	if (this != &other) {
 		const_cast<std::string&>(this->_name) = other._name;
 		const_cast<bool&>(this->_sign) = other._sign;

@@ -6,7 +6,7 @@
 /*   By: joldosh <joldosh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 18:43:56 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/11/03 21:39:44 by joldosh          ###   ########.fr       */
+/*   Updated: 2023/11/10 09:44:29 by joldosh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,6 @@ class Form
                 virtual const char *what() const throw(); 
         };
 };
-	std::ostream& operator<<(std::ostream &os, const Form &print);
+std::ostream& operator<<(std::ostream &os, const Form &print);
 
 #endif
