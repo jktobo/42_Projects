@@ -6,7 +6,7 @@
 /*   By: joldosh <joldosh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 18:42:32 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/11/04 14:11:38 by joldosh          ###   ########.fr       */
+/*   Updated: 2023/11/10 10:00:04 by joldosh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,14 @@
 
 int main()
 {
+    Bureaucrat buroc1("Burcat1", 140);
+    ShrubberyCreationForm Shrub_form("Garden");
 	try
 	{
-        Bureaucrat me("Zhun", 146); // все подписывает и выполняет. 140 - подпишет но не выполнит. 150 - не подпишет и не выполнит
-        ShrubberyCreationForm form_sh("home"); // 145-sign, 137-exec
-        std::cout << form_sh << std::endl;
-        me.signForm(form_sh); // подписать shrubbery
-        std::cout << std::endl << form_sh << std::endl;
-		form_sh.execute(me);
+        std::cout << Shrub_form << std::endl;
+        buroc1.signForm(Shrub_form);
+        std::cout << std::endl << Shrub_form << std::endl;
+		Shrub_form.execute(buroc1);
 	}
     catch(const std::exception& e)
     {
@@ -47,19 +47,19 @@ int main()
 	// }
 
 
-	try
-	{
-        Bureaucrat me3("Denis", 4);
-        PresidentialPardonForm form_pres("Chelovek");//25- sign, 5 -exec
-        me3.signForm(form_pres);
-        me3.executeForm(form_pres);
-        std::cout << std::endl << form_pres << std::endl;
-		form_pres.execute(me3);
-	}
-	catch (std::exception & ex)
-	{
-		std::cout << ex.what() << std::endl;
-	}
-    return (0);
+	// try
+	// {
+    //     Bureaucrat me3("Denis", 4);
+    //     PresidentialPardonForm form_pres("Chelovek");//25- sign, 5 -exec
+    //     me3.signForm(form_pres);
+    //     me3.executeForm(form_pres);
+    //     std::cout << std::endl << form_pres << std::endl;
+	// 	form_pres.execute(me3);
+	// }
+	// catch (std::exception & ex)
+	// {
+	// 	std::cout << ex.what() << std::endl;
+	// }
+    // return (0);
 
 }
