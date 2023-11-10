@@ -6,7 +6,7 @@
 /*   By: joldosh <joldosh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 18:45:12 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/11/04 14:26:13 by joldosh          ###   ########.fr       */
+/*   Updated: 2023/11/10 09:21:30 by joldosh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ class AForm
         AForm(std::string name, int gradeSign, int gradeExec);
         AForm(AForm const &copy);
         AForm &operator=(AForm const &other);
-        ~AForm();
+        virtual ~AForm();
 
         //Getters
         std::string getName() const;
@@ -52,6 +52,10 @@ class AForm
                 virtual const char *what() const throw(); 
         };
         class TheFormIsNotSigned : public std::exception {
+            public:
+                virtual const char *what() const throw(); 
+        };
+        class TheFormIsNotExist : public std::exception {
             public:
                 virtual const char *what() const throw(); 
         };

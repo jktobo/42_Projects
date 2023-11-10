@@ -6,7 +6,7 @@
 #    By: joldosh <joldosh@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/13 18:42:39 by dkaratae          #+#    #+#              #
-#    Updated: 2023/11/04 14:27:07 by joldosh          ###   ########.fr        #
+#    Updated: 2023/11/10 00:03:36 by joldosh          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ SRCS = main.cpp \
 	ShrubberyCreationForm.cpp \
 	RobotomyRequestForm.cpp \
 	PresidentialPardonForm.cpp \
+	Intern.cpp \
 		
 OBJS = $(SRCS:.cpp=.o)
 

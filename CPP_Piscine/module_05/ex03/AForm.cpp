@@ -6,7 +6,7 @@
 /*   By: joldosh <joldosh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 18:45:05 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/11/04 14:25:56 by joldosh          ###   ########.fr       */
+/*   Updated: 2023/11/09 23:59:58 by joldosh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,9 @@ const char* AForm::GradeTooLowExeption::what() const throw() {
 }
 const char* AForm::TheFormIsNotSigned::what() const throw() {
     return "The Form isn't signed!";
+}
+const char* AForm::TheFormIsNotExist::what() const throw() {
+    return "The Form doesn't exist!";
 }
 
 std::ostream& operator<<(std::ostream &os, const AForm& print) {
