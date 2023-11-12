@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
+/*   By: joldosh <joldosh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 16:50:04 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/11/11 16:50:06 by dkaratae         ###   ########.fr       */
+/*   Updated: 2023/11/12 14:17:13 by joldosh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 
 #include <string>
 #include <iostream>
+#include <iomanip>
+#include <exception>
+
+
 
 class ScalarConverter {
     private:

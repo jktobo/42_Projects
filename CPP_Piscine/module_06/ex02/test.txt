@@ -1,0 +1,19 @@
+all:
+	@printf "Starting the configuration ${name}...\n"
+	@docker-compose -f ./docker-compose.yml up -d
+
+build:
+	@printf "Configuration assembly ${name}...\n"
+	@docker-compose -f ./docker-compose.yml up -d --build
+
+down:
+	@printf "Stopping the configuration ${name}...\n"
+	@docker-compose -f ./docker-compose.yml down
+
+re:
+	@printf "Rebuild configuration ${name}...\n"
+	@docker-compose -f ./docker-compose.yml up -d --build
+
+clean: down
+	@printf "Configuration cleaning ${name}...\n"
+	@docker system prune -a
