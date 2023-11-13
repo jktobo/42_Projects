@@ -11,6 +11,7 @@ int main() {
 
 
     std::cout << std::endl;
+    std::cout << "------====== BEFORE ======------" << std::endl;
     std::cout << "Address &Data\t" << &data << std::endl;
     std::cout << "Address *Ptr\t" << ptr << std::endl;
     std::cout << "Address Raw\t" << serialized << std::endl;
