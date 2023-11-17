@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Span.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dkaratae <dkaratae@student.42abudhabi.a    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/17 18:52:25 by dkaratae          #+#    #+#             */
+/*   Updated: 2023/11/17 18:59:13 by dkaratae         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Span.hpp"
 
 Span::Span() {
@@ -41,7 +53,7 @@ int Span::shortestSpan() {
 int Span::longestSpan() {
 	if (_vec.size() <= 1)
 		throw SpanIsFull();
-	std::sort(_vec.begin(), _vec.end());
+	// std::sort(_vec.begin(), _vec.end());
 	// int min = *std::min_element(_vec.begin(), _vec.end());
 	// int max = *std::max_element(_vec.begin(), _vec.end());
 	// return (max - min);

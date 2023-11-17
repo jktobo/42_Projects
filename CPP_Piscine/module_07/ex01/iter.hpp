@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   iter.hpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dkaratae <dkaratae@student.42abudhabi.a    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/14 18:44:27 by dkaratae          #+#    #+#             */
+/*   Updated: 2023/11/14 18:51:25 by dkaratae         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef ITER_HPP
 #define ITER_HPP
 
@@ -28,6 +40,8 @@ void yellow_show(T variable) {
     std::cout << YELLOW << variable << std::endl;
 }
 
+// void iter(T *array, size_t size, void (*func)(const T &x)) {
+        // (*func)(array[i]);
 template <typename T, typename F>
 void iter(T *array, size_t size, F func) {
     if (!size)

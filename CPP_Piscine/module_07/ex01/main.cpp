@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dkaratae <dkaratae@student.42abudhabi.a    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/14 18:44:34 by dkaratae          #+#    #+#             */
+/*   Updated: 2023/11/14 18:59:15 by dkaratae         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Iter.hpp"
 
 int main(void) {
@@ -16,7 +28,6 @@ int main(void) {
     std::string arr_s[] = {"Dubai", "Abu-Dhabi", "Bishkek", "New-Yourk", "Paris"};
     size = sizeof(arr_s) / sizeof(arr_s[0]);
     iter(arr_s, size, blue_show<std::string>);
-
 
     return (0);
 }

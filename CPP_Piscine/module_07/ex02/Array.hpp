@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Array.hpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dkaratae <dkaratae@student.42abudhabi.a    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/14 18:44:46 by dkaratae          #+#    #+#             */
+/*   Updated: 2023/11/14 18:44:47 by dkaratae         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef ARRAY_HPP
 #define ARRAY_HPP
 
@@ -38,7 +50,7 @@ class Array {
         }
 
         T &operator[](unsigned int index) {
-            if (index >= _n) {
+            if (index >= _n || index < 0) {
                 throw std::out_of_range("The Index is out of bounds");
             }
             return (_array[index]);
