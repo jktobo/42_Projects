@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joldosh <joldosh@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dkaratae <dkaratae@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 16:16:55 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/11/24 18:06:51 by joldosh          ###   ########.fr       */
+/*   Updated: 2023/11/24 19:47:10 by dkaratae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,23 +122,21 @@ void BitcoinExchange::deleteGaps(std::string &date, std::string &value) {
 // }
 
 bool BitcoinExchange::dateIsValid(const std::string& date) {
-    // Basic format check (YYYY-MM-DD)
     if (date.size() != 10 || date[4] != '-' || date[7] != '-') {
         return false;
     }
-
-    // Extract year, month, and day
     int year = atoi(date.substr(0, 4).c_str());
     int month = atoi(date.substr(5, 2).c_str());
     int day = atoi(date.substr(8, 2).c_str());
-
-    // Check the validity of the date
+    if (month == 2) {
+        bool isLeap = ((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0);
+        if ((day > 29) || (day == 29 && !isLeap)) {
+            return false;
+        }
+    }
     if (year < 0 || month < 1 || month > 12 || day < 1 || day > 31) {
         return false;
     }
-
-    // Additional checks for valid months and days might be needed based on the calendar rules
-
     return true;
 }
 

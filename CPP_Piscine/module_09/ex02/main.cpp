@@ -6,7 +6,7 @@
 /*   By: dkaratae <dkaratae@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 16:17:54 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/11/24 16:21:11 by dkaratae         ###   ########.fr       */
+/*   Updated: 2023/11/24 20:17:31 by dkaratae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,7 @@ int main(int argc, char *argv[]) {
     std::deque<int> deq;
     for (int i = 1; i < argc; ++i) {
         int num = std::atoi(argv[i]);
-        // std::cout << "Error: " << num << std::endl;
-        if (num <= 0) {
+        if (num <= 0 && !isdigit(num)) {
             std::cout << "Error: You didn't enter numbers!" << std::endl;
             return (1);
         }

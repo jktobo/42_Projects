@@ -6,11 +6,12 @@
 /*   By: dkaratae <dkaratae@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 16:17:41 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/11/24 16:22:51 by dkaratae         ###   ########.fr       */
+/*   Updated: 2023/11/24 20:33:00 by dkaratae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RPN.hpp"
+// #include <sys/_types/_size_t.h>
 
 RPN::RPN(std::string const arg) : _arg(arg) {}
 
@@ -21,13 +22,14 @@ int checkDigitOrNot(std::string str) {
     }
     return (1);
 }
+
 int RPN::calculate() {
     std::istringstream iss(_arg);
     std::string arg_l;
 
     while (iss >> arg_l) {
         if (checkDigitOrNot(arg_l)) {
-            stek.push(std::stoi(arg_l));
+            stek.push(atoi(arg_l.c_str()));
         } else {
             if (stek.size() < 2) {
                 throw std::runtime_error("Uncorect the argument!");

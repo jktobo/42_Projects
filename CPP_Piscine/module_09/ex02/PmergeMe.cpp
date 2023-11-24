@@ -6,7 +6,7 @@
 /*   By: dkaratae <dkaratae@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 16:18:02 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/11/24 16:18:31 by dkaratae         ###   ########.fr       */
+/*   Updated: 2023/11/24 20:13:57 by dkaratae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,7 +116,6 @@ void PmergeMe::deqInsertSort(std::deque<int> &left, std::deque<int> &right, std:
         ++deq_it;
     }
 }
-
 
 
 

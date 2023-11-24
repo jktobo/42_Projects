@@ -6,7 +6,7 @@
 #    By: dkaratae <dkaratae@student.42abudhabi.a    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/22 16:17:59 by dkaratae          #+#    #+#              #
-#    Updated: 2023/11/24 16:23:05 by dkaratae         ###   ########.fr        #
+#    Updated: 2023/11/24 16:29:11 by dkaratae         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ HEADER = PmergeMe.hpp \
 OBJS = $(SRCS:.cpp=.o)
 
 CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror #-std=c++98
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 .PHONY: all clean fclean re
 
