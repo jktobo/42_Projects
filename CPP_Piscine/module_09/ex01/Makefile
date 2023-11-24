@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: dkaratae <dkaratae@student.42abudhabi.a    +#+  +:+       +#+         #
+#    By: joldosh <joldosh@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/22 16:17:36 by dkaratae          #+#    #+#              #
-#    Updated: 2023/11/22 16:17:38 by dkaratae         ###   ########.fr        #
+#    Updated: 2023/11/24 10:49:58 by joldosh          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ HEADER = RPN.hpp \
 OBJS = $(SRCS:.cpp=.o)
 
 CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -g#-std=c++98
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 .PHONY: all clean fclean re
 

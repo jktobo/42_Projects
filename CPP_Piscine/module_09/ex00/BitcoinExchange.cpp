@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dkaratae <dkaratae@student.42abudhabi.a    +#+  +:+       +#+        */
+/*   By: joldosh <joldosh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 16:16:55 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/11/22 16:16:57 by dkaratae         ###   ########.fr       */
+/*   Updated: 2023/11/24 10:41:01 by joldosh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,6 @@
 
 BitcoinExchange:: BitcoinExchange() {
 }
-
-// BitcoinExchange:: BitcoinExchange(const std::string fileCsv) {
-//     loadCsv(fileCsv);
-// }
-
-// void BitcoinExchange::PrintMap() {
-//     std::map<std::string, float>::iterator it;
-//     for (it = data.begin(); it != data.end(); ++it) {
-//         std::cout << it->first << " = " << std::fixed << std::setprecision(2) << it->second << std::endl;
-//     }
-// }
 
 void BitcoinExchange::PrintResult(const std::string &date, const std::string &value, const float &floatNum) {
     std::string closestDate = findClosestLowerDate(date);
@@ -81,10 +70,17 @@ void BitcoinExchange::inputTxt(const std::string &fileTxt) {
                 std::cout << "Error: not a positive number." << std::endl;
                 continue;
             }
-            float floatNum = stof(value);
             if (!valueIsNotBig(value)) {
                 std::cout << "Error: too large a number." << std::endl;
                 continue;
+            }
+            float floatNum = 0;
+            try {
+                floatNum = stof(value);
+            } catch (std::invalid_argument& e) {
+                std::cerr << "ERROR! Invalid argument: " << value << std::endl;
+            } catch (std::out_of_range& e) {
+                std::cerr << "ERROR! Out of range: " << value << std::endl;
             }
             PrintResult(date, value, floatNum);
         } else {
@@ -124,28 +120,6 @@ bool BitcoinExchange::dateIsValid(const std::string &date) {
            tm.tm_mon + 1 == std::stoi(date.substr(5, 2)) &&
            tm.tm_mday == std::stoi(date.substr(8, 2));
 }
-
-// bool BitcoinExchange::dateIsValid(const std::string &date) {
-//     std::istringstream ss(date);
-//     std::tm parsed = {};
-
-//     if (ss >> std::get_time(&parsed, "%Y-%m-%d")) {
-//         std::ostringstream oss;
-//         oss << std::put_time(&parsed, "%Y-%m-%d");
-//         if (oss.str() != date) {
-//             return false;
-//         }
-//         if (parsed.tm_mon == 1 && parsed.tm_mday == 29) {
-//             int year = parsed.tm_year + 1900;
-//             if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) {
-//                 return true; // Valid
-//             }
-//             return false; // Invalid
-//         }
-//         return true; // Valid
-//     }
-//     return false; // Invalid
-// }
 
 bool BitcoinExchange::valueIsPositive(const std::string &value) {
     try

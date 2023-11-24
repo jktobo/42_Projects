@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dkaratae <dkaratae@student.42abudhabi.a    +#+  +:+       +#+        */
+/*   By: joldosh <joldosh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 16:17:03 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/11/22 16:17:03 by dkaratae         ###   ########.fr       */
+/*   Updated: 2023/11/24 11:53:55 by joldosh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

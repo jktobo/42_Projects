@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RPN.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dkaratae <dkaratae@student.42abudhabi.a    +#+  +:+       +#+        */
+/*   By: joldosh <joldosh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 16:17:41 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/11/22 16:17:43 by dkaratae         ###   ########.fr       */
+/*   Updated: 2023/11/24 10:55:23 by joldosh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int RPN::calculate() {
                 stek.push(top2 * top1);
             else if (arg_l[0] == '/') {
                 if (top1 == 0)
-                    throw std::runtime_error("Cannot to divide by 0");
+                    throw std::runtime_error("Can't to divide by 0");
                 stek.push(top2 / top1);
             } else
                 throw std::runtime_error("Uncorrect the operator");
