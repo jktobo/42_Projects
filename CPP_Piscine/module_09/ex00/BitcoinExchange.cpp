@@ -6,7 +6,7 @@
 /*   By: dkaratae <dkaratae@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 16:16:55 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/11/24 16:21:54 by dkaratae         ###   ########.fr       */
+/*   Updated: 2023/11/24 17:54:35 by dkaratae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void BitcoinExchange::PrintResult(const std::string &date, const std::string &va
 }
 
 void BitcoinExchange::loadCsv(const std::string fileCsv) {
-    std::ifstream file(fileCsv);
+    std::ifstream file(fileCsv.c_str());
     if (!file) {
         throw FileNotOpen();
     }
@@ -37,7 +37,7 @@ void BitcoinExchange::loadCsv(const std::string fileCsv) {
         std::string date, value;
         if (std::getline(iss, date, ',') && std::getline(iss, value)) {
             try {
-                data[date] = std::stof(value);
+                data[date] = atof(value.c_str());
             } catch (std::invalid_argument& e) {
                 std::cerr << "ERROR! Invalid argument: " << value << std::endl;
             } catch (std::out_of_range& e) {
@@ -76,7 +76,7 @@ void BitcoinExchange::inputTxt(const std::string &fileTxt) {
             }
             float floatNum = 0;
             try {
-                floatNum = stof(value);
+                floatNum = atof(value.c_str());
             } catch (std::invalid_argument& e) {
                 std::cerr << "ERROR! Invalid argument: " << value << std::endl;
             } catch (std::out_of_range& e) {
@@ -116,15 +116,15 @@ bool BitcoinExchange::dateIsValid(const std::string &date) {
     }
     tm.tm_isdst = -1;
     std::mktime(&tm);
-    return tm.tm_year + 1900 == std::stoi(date.substr(0, 4)) &&
-           tm.tm_mon + 1 == std::stoi(date.substr(5, 2)) &&
-           tm.tm_mday == std::stoi(date.substr(8, 2));
+    return tm.tm_year + 1900 == std::atoi(date.substr(0, 4).c_str()) &&
+           tm.tm_mon + 1 == std::atoi(date.substr(5, 2).c_str()) &&
+           tm.tm_mday == atoi(date.substr(8, 2).c_str());
 }
 
 bool BitcoinExchange::valueIsPositive(const std::string &value) {
     try
     {
-        float floatNum = stof(value);
+        float floatNum = atof(value.c_str());
         return (floatNum >= 0);
     }
     catch(const std::exception& e)
@@ -135,7 +135,7 @@ bool BitcoinExchange::valueIsPositive(const std::string &value) {
 bool BitcoinExchange::valueIsNotBig(const std::string &value) {
     try
     {
-        float floatNum = stof(value);
+        float floatNum = atof(value.c_str());
         return (floatNum < 1000);
     }
     catch(const std::exception& e)

@@ -6,7 +6,7 @@
 #    By: dkaratae <dkaratae@student.42abudhabi.a    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/22 16:17:19 by dkaratae          #+#    #+#              #
-#    Updated: 2023/11/24 16:22:33 by dkaratae         ###   ########.fr        #
+#    Updated: 2023/11/24 16:45:25 by dkaratae         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ HEADER = BitcoinExchange.hpp \
 OBJS = $(SRCS:.cpp=.o)
 
 CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror #-std=c++98
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 .PHONY: all clean fclean re
 
