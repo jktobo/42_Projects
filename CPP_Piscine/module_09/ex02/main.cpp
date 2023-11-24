@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joldosh <joldosh@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dkaratae <dkaratae@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 16:17:54 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/11/24 15:06:57 by joldosh          ###   ########.fr       */
+/*   Updated: 2023/11/24 16:21:11 by dkaratae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,14 @@ int main(int argc, char *argv[]) {
     std::cout << std::endl;
     pmergeVec.printTime(timeVec_res, vec.size(), "vector");
     
-    // PmergeMe<std::deque<int> > pmergeDeq;
-    // double timeDeq_res = pmergeDeq.sort(deq);
-    // pmergeDeq.printTime(timeDeq_res, deq.size(), "deque");
+    PmergeMe pmergeDeq;
+    double timeDeq_res = pmergeDeq.deqSort(deq);
+    // std::cout << "After:   ";
+    // for (size_t i = 0; i < deq.size(); ++i) {
+    //     std::cout << deq[i] << " ";
+    // }
+    // std::cout << std::endl;
+    pmergeDeq.printTime(timeDeq_res, deq.size(), "deque");
 
     return (0);
 }

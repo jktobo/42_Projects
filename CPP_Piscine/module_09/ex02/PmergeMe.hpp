@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joldosh <joldosh@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dkaratae <dkaratae@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 16:18:05 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/11/24 15:27:12 by joldosh          ###   ########.fr       */
+/*   Updated: 2023/11/24 16:23:43 by dkaratae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,12 @@ class PmergeMe {
         void vecMergeInsertSort(std::vector<int> &vec);
         void  vecInsertSort(std::vector<int> &vec);
 
-        void PmergeMe::deqInsertionSort(std::deque<int> &deq)ж
-        
+        double deqSort(std::deque<int> &deq);
+        void deqMergeInsertSort(std::deque<int> &deq);
+        void deqInsertSort(std::deque<int> &left, std::deque<int> &right, std::deque<int> &deq);
         
         void printTime(double time_res, int contSize, std::string const contName);
 
-        std::chrono::duration<double> sortDeq(std::vector<int> &vec);
 
         ~PmergeMe();
 };

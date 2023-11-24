@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: joldosh <joldosh@student.42.fr>            +#+  +:+       +#+         #
+#    By: dkaratae <dkaratae@student.42abudhabi.a    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/22 16:17:59 by dkaratae          #+#    #+#              #
-#    Updated: 2023/11/24 12:07:09 by joldosh          ###   ########.fr        #
+#    Updated: 2023/11/24 16:23:05 by dkaratae         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 

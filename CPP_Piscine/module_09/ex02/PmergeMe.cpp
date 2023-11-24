@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joldosh <joldosh@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dkaratae <dkaratae@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 16:18:02 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/11/24 15:59:44 by joldosh          ###   ########.fr       */
+/*   Updated: 2023/11/24 16:18:31 by dkaratae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,19 +61,72 @@ void PmergeMe::printTime(double time_res, int contSize, std::string const contNa
 }
 
 
-// std::chrono::duration<double> PmergeMe::deqSort(std::deque<int> &deq) {
-//     std::chrono::high_resolution_clock::time_point t1 = std::chrono::high_resolution_clock::now();
-//     deqInsertionSort(deq);
-//     std::chrono::high_resolution_clock::time_point t2 = std::chrono::high_resolution_clock::now();
-//     return t2 - t1;
-// }
+double PmergeMe::deqSort(std::deque<int> &deq) {
+    clock_t	start, finish;
+    start = clock();
+    deqMergeInsertSort(deq);
+    finish = clock();
+    return ((double) (finish - start) / CLOCKS_PER_SEC);
+}
 
-void PmergeMe::deqInsertionSort(std::deque<int> &deq) {
-    for (std::deque<int>::iterator it = deq.begin(); it != deq.end(); ++it) {
-        std::deque<int>::iterator insertion_point = std::upper_bound(deq.begin(), it, *it);
-        std::rotate(insertion_point, it, it + 1);
+
+void PmergeMe::deqMergeInsertSort(std::deque<int> &deq) {
+    if (deq.size() <= 1)
+        return;
+
+    std::deque<int> left, right;
+    for (size_t i = 0; i < deq.size(); ++i) {
+        if (i < deq.size() / 2)
+            left.push_back(deq[i]);
+        else
+            right.push_back(deq[i]);
+    }
+
+    deqMergeInsertSort(left);
+    deqMergeInsertSort(right);
+
+    deqInsertSort(left, right, deq);
+}
+
+void PmergeMe::deqInsertSort(std::deque<int> &left, std::deque<int> &right, std::deque<int> &deq) {
+    std::deque<int>::iterator left_it = left.begin();
+    std::deque<int>::iterator right_it = right.begin();
+    std::deque<int>::iterator deq_it = deq.begin();
+
+    while (left_it != left.end() && right_it != right.end()) {
+        if (*left_it < *right_it) {
+            *deq_it = *left_it;
+            ++left_it;
+        } else {
+            *deq_it = *right_it;
+            ++right_it;
+        }
+        ++deq_it;
+    }
+
+    while (left_it != left.end()) {
+        *deq_it = *left_it;
+        ++left_it;
+        ++deq_it;
+    }
+
+    while (right_it != right.end()) {
+        *deq_it = *right_it;
+        ++right_it;
+        ++deq_it;
     }
 }
+
+
+
+
+
+// void PmergeMe::deqInsertionSort(std::deque<int> &deq) {
+//     for (std::deque<int>::iterator it = deq.begin(); it != deq.end(); ++it) {
+//         std::deque<int>::iterator insertion_point = std::upper_bound(deq.begin(), it, *it);
+//         std::rotate(insertion_point, it, it + 1);
+//     }
+// }
 
 
 
