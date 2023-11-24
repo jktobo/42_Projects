@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dkaratae <dkaratae@student.42abudhabi.a    +#+  +:+       +#+        */
+/*   By: joldosh <joldosh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 16:16:55 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/11/24 17:54:35 by dkaratae         ###   ########.fr       */
+/*   Updated: 2023/11/24 18:06:51 by joldosh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void BitcoinExchange::loadCsv(const std::string fileCsv) {
 }
 
 void BitcoinExchange::inputTxt(const std::string &fileTxt) {
-    std::ifstream file(fileTxt);
+    std::ifstream file(fileTxt.c_str());
 
     if (!file.is_open()) {
         throw FileNotOpen();
@@ -107,19 +107,41 @@ void BitcoinExchange::deleteGaps(std::string &date, std::string &value) {
     value.erase(value.find_last_not_of(" ") + 1);
 }
 
-bool BitcoinExchange::dateIsValid(const std::string &date) {
-    std::tm tm = {};
-    std::istringstream ss(date);
-    ss >> std::get_time(&tm, "%Y-%m-%d");
-    if (ss.fail()) {
+// bool BitcoinExchange::dateIsValid(const std::string &date) {
+//     std::tm tm = {};
+//     std::istringstream ss(date);
+//     ss >> std::get_time(&tm, "%Y-%m-%d");
+//     if (ss.fail()) {
+//         return false;
+//     }
+//     tm.tm_isdst = -1;
+//     std::mktime(&tm);
+//     return tm.tm_year + 1900 == std::atoi(date.substr(0, 4).c_str()) &&
+//            tm.tm_mon + 1 == std::atoi(date.substr(5, 2).c_str()) &&
+//            tm.tm_mday == atoi(date.substr(8, 2).c_str());
+// }
+
+bool BitcoinExchange::dateIsValid(const std::string& date) {
+    // Basic format check (YYYY-MM-DD)
+    if (date.size() != 10 || date[4] != '-' || date[7] != '-') {
         return false;
     }
-    tm.tm_isdst = -1;
-    std::mktime(&tm);
-    return tm.tm_year + 1900 == std::atoi(date.substr(0, 4).c_str()) &&
-           tm.tm_mon + 1 == std::atoi(date.substr(5, 2).c_str()) &&
-           tm.tm_mday == atoi(date.substr(8, 2).c_str());
+
+    // Extract year, month, and day
+    int year = atoi(date.substr(0, 4).c_str());
+    int month = atoi(date.substr(5, 2).c_str());
+    int day = atoi(date.substr(8, 2).c_str());
+
+    // Check the validity of the date
+    if (year < 0 || month < 1 || month > 12 || day < 1 || day > 31) {
+        return false;
+    }
+
+    // Additional checks for valid months and days might be needed based on the calendar rules
+
+    return true;
 }
+
 
 bool BitcoinExchange::valueIsPositive(const std::string &value) {
     try
