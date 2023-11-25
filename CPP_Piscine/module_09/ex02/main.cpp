@@ -6,7 +6,7 @@
 /*   By: dkaratae <dkaratae@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 16:17:54 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/11/24 20:17:31 by dkaratae         ###   ########.fr       */
+/*   Updated: 2023/11/25 17:07:13 by dkaratae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,15 @@ int main(int argc, char *argv[]) {
     if (argc < 2) {
     std::cerr << "You should enter numbers!" << std::endl;
     return (1);
+    }
+    size_t size = argc;
+    for (size_t i = 1; i < size; ++i) {
+        for (size_t j = 0; argv[i][j]; ++j) {
+            if (!isdigit(argv[i][j])) {
+                std::cout << "ERROR: You shoud enter only numbers!" << std::endl;
+                return 1;
+            }
+        }
     }
     
     std::vector<int> vec;

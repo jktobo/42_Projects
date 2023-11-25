@@ -3,16 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joldosh <joldosh@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dkaratae <dkaratae@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 16:16:55 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/11/25 15:45:22 by joldosh          ###   ########.fr       */
+/*   Updated: 2023/11/25 20:13:47 by dkaratae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
 
-BitcoinExchange:: BitcoinExchange() {
+BitcoinExchange::BitcoinExchange() {
+}
+
+BitcoinExchange::BitcoinExchange(BitcoinExchange const &copy) {
+    this->data = copy.data;
+}
+
+BitcoinExchange &BitcoinExchange::operator=(BitcoinExchange const &other) {
+    this->data = other.data;
+    return (*this);
 }
 
 void BitcoinExchange::PrintResult(const std::string &date, const std::string &value, const float &floatNum) {
@@ -37,7 +46,6 @@ void BitcoinExchange::loadCsv(const std::string fileCsv) {
         throw FileIsEmpty();
     }
     std::string line;
-    // std::getline(file, line);
     while (std::getline(file, line)) {
         if (line == "date,exchange_rate")
             std::getline(file, line);
@@ -73,6 +81,10 @@ void BitcoinExchange::inputTxt(const std::string &fileTxt) {
             deleteGaps(date, value);
             if (!dateIsValid(date)) {
                 std::cout << "Error: bad input => " << date << std::endl;
+                continue;
+            }
+            if (valueIsDigit(value)) {
+                std::cout << "Error: not a number." << std::endl;
                 continue;
             }
             if (!valueIsPositive(value)) {
@@ -118,20 +130,6 @@ void BitcoinExchange::deleteGaps(std::string &date, std::string &value) {
     value.erase(value.find_last_not_of(" ") + 1);
 }
 
-// bool BitcoinExchange::dateIsValid(const std::string &date) {
-//     std::tm tm = {};
-//     std::istringstream ss(date);
-//     ss >> std::get_time(&tm, "%Y-%m-%d");
-//     if (ss.fail()) {
-//         return false;
-//     }
-//     tm.tm_isdst = -1;
-//     std::mktime(&tm);
-//     return tm.tm_year + 1900 == std::atoi(date.substr(0, 4).c_str()) &&
-//            tm.tm_mon + 1 == std::atoi(date.substr(5, 2).c_str()) &&
-//            tm.tm_mday == atoi(date.substr(8, 2).c_str());
-// }
-
 bool BitcoinExchange::dateIsValid(const std::string& date) {
     if (date.size() != 10 || date[4] != '-' || date[7] != '-') {
         return false;
@@ -151,6 +149,14 @@ bool BitcoinExchange::dateIsValid(const std::string& date) {
     return true;
 }
 
+int BitcoinExchange::valueIsDigit(const std::string &value) {
+    for (size_t i = 0; i < value.size(); ++i) {
+        if (!isdigit(value[i]) && value[i] != '.') {
+            return (1);
+        }
+    }
+    return (0);
+}
 
 bool BitcoinExchange::valueIsPositive(const std::string &value) {
     try
@@ -163,6 +169,7 @@ bool BitcoinExchange::valueIsPositive(const std::string &value) {
         return (false);
     }
 }
+
 bool BitcoinExchange::valueIsNotBig(const std::string &value) {
     try
     {
@@ -182,6 +189,7 @@ BitcoinExchange::~BitcoinExchange() {
 const char* BitcoinExchange::FileNotOpen::what() const throw() {
     return "The File didn't open!";
 }
+
 const char* BitcoinExchange::FileIsEmpty::what() const throw() {
     return "File empty or no data!";
 }
