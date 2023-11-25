@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dkaratae <dkaratae@student.42abudhabi.a    +#+  +:+       +#+        */
+/*   By: joldosh <joldosh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 16:17:03 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/11/24 19:48:45 by dkaratae         ###   ########.fr       */
+/*   Updated: 2023/11/25 15:42:10 by joldosh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ class BitcoinExchange
         bool valueIsNotBig(const std::string &value);
         std::string findClosestLowerDate(const std::string& date);
         void PrintResult(const std::string &date, const std::string &value, const float &floatNum);
-
     public: 
         BitcoinExchange();
         BitcoinExchange(const std::string fileCsv);

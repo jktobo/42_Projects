@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dkaratae <dkaratae@student.42abudhabi.a    +#+  +:+       +#+        */
+/*   By: joldosh <joldosh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 16:16:55 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/11/24 19:47:10 by dkaratae         ###   ########.fr       */
+/*   Updated: 2023/11/25 15:45:22 by joldosh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,15 @@ BitcoinExchange:: BitcoinExchange() {
 
 void BitcoinExchange::PrintResult(const std::string &date, const std::string &value, const float &floatNum) {
     std::string closestDate = findClosestLowerDate(date);
-    float exchangeRate = data.at(closestDate);
-    float result = floatNum * exchangeRate;
-    std::cout << date << " => " << value << " = " << result << std::endl;
+    float exchangeRate = 0;
+    float result = 0;
+    try {
+        exchangeRate = data.at(closestDate);
+        result = floatNum * exchangeRate;
+        std::cout << closestDate << " => " << value << " = " << result << std::endl;
+    } catch (std::exception& e) {
+        std::cerr << "ERROR! The date there isn't in the data! "  << std::endl;
+    }
 }
 
 void BitcoinExchange::loadCsv(const std::string fileCsv) {
@@ -31,8 +37,10 @@ void BitcoinExchange::loadCsv(const std::string fileCsv) {
         throw FileIsEmpty();
     }
     std::string line;
-    std::getline(file, line);
+    // std::getline(file, line);
     while (std::getline(file, line)) {
+        if (line == "date,exchange_rate")
+            std::getline(file, line);
         std::istringstream iss (line);
         std::string date, value;
         if (std::getline(iss, date, ',') && std::getline(iss, value)) {
@@ -56,8 +64,9 @@ void BitcoinExchange::inputTxt(const std::string &fileTxt) {
         throw FileNotOpen();
     }
     std::string line;
-    std::getline(file, line);
     while (std::getline(file, line)) {
+        if (line == "date | value")
+            std::getline(file, line);
         std::istringstream iss (line);
         std::string date, value;
         if (std::getline(iss, date, '|') && std::getline(iss, value)) {
@@ -83,6 +92,8 @@ void BitcoinExchange::inputTxt(const std::string &fileTxt) {
                 std::cerr << "ERROR! Out of range: " << value << std::endl;
             }
             PrintResult(date, value, floatNum);
+        } else if (date.empty()) {
+            continue;
         } else {
             std::cout << "Error: bad input => " << line << std::endl;
         }
