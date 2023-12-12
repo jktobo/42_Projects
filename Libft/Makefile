@@ -3,90 +3,109 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+         #
+#    By: yonamog2 <yonamog2@student.42abudhabi.a    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/03/31 20:13:31 by dkaratae          #+#    #+#              #
-#    Updated: 2022/04/02 21:40:26 by dkaratae         ###   ########.fr        #
+#    Created: 2023/02/11 16:02:02 by dkaratae          #+#    #+#              #
+#    Updated: 2023/02/20 16:53:35 by yonamog2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libft.a
+NAME = minishell
 
-CC = gcc
-CFLAGS = -Wall -Wextra -Werror
-AR = ar rcs
-RM = rm -f
+.SILENT:
 
-FILES = ft_isalpha \
-		ft_isdigit \
-		ft_isalnum \
-		ft_isascii \
-		ft_isprint \
-		ft_strlen \
-		ft_memset \
-		ft_bzero \
-		ft_memcpy \
-		ft_memmove \
-		ft_strlcpy \
-		ft_strlcat \
-		ft_toupper \
-		ft_tolower \
-		ft_strchr \
-		ft_strrchr \
-		ft_strncmp \
-		ft_memchr \
-		ft_memcmp \
-		ft_strnstr \
-		ft_atoi \
-		ft_calloc \
-		ft_strdup \
-		ft_substr \
-		ft_strjoin \
-		ft_strtrim \
-		ft_split \
-		ft_itoa \
-		ft_strmapi \
-		ft_striteri \
-		ft_putchar_fd \
-		ft_putstr_fd \
-		ft_putendl_fd \
-		ft_putnbr_fd \
-		
-FILES_B = 	ft_lstnew \
-			ft_lstadd_front \
-			ft_lstsize \
-			ft_lstlast \
-			ft_lstadd_back \
-			ft_lstdelone \
-			ft_lstclear \
-			ft_lstiter \
-			ft_lstmap \
+FILES =		ft_expand.c\
+			added.c \
+			pipex.c \
+			ft_red_files.c \
+			ft_red_files_util.c \
+			ft_builtin.c \
+			ft_export.c \
+			ft_search.c \
+			ft_linkedlist.c \
+			minishell.c  \
+			ft_checker_qoutes.c \
+			ft_copy_to_struct.c \
+			ft_lexer.c \
+			ft_preparse.c \
+			ft_redirection_del.c \
+			ft_redirection_one.c \
+			ft_redirection_two.c \
+			ft_redirection_utils.c \
+			ft_separate_struct.c \
+			ft_separate_utils.c \
+			ft_space.c \
+			ft_cd.c \
+			ft_export_utils.c \
+			ft_create_env_list.c \
+			ft_parsing_cmds.c \
+			ft_one_cmd_proccess.c \
+			ft_two_more_cmd_proccess.c \
+			ft_atoi_modified.c \
+			ft_free_funcs.c \
+			ft_expand_utils.c \
+			ft_get_env.c \
+			ft_heredoc.c \
+			ft_more_cmd_proccess_util.c \
+			ft_signal.c \
+			ft_lexer_util.c \
+# FILES = ft_input.c
+# FILES = try.c
+OBJ = $(FILES:.c=.o)
 
-SRCS_DIR = ./
-SRCS = $(addprefix $(SRCS_DIR), $(addsuffix .c, $(FILES)))
-SRCS_B = $(addprefix $(SRCS_DIR), $(addsuffix .c, $(FILES_B)))
+#for mac
+CC = cc  -I/usr/local/Cellar/readline/8.1/include
+#for linux
+# CC = cc 
 
-OBJS_DIR = ./
-OBJS = $(addprefix $(OBJS_DIR), $(addsuffix .o, $(FILES)))
-OBJS_B = $(addprefix $(OBJS_DIR), $(addsuffix .o, $(FILES_B)))
+CFLAGS = -Wall -Werror -Wextra 
+#-g3 
+#-fsanitize=address
 
-.c.o: $(SRCS)
-	$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
+all : $(NAME)
+	tput setaf 3
+	echo "🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥\n";
+	echo "	██    ██ █ ██    █ █ █████ █   █ █████ █     █";
+	echo "	███  ███ █ ███   █ █ █     █   █ █     █     █";
+	echo "	█ ████ █ █ █ ██  █ █ █████ █████ ████  █     █";
+	echo "	█  ██  █ █ █  ██ █ █     █ █   █ █     █     █";
+	echo "	█      █ █ █   ███ █ █████ █   █ █████ █████ █████";
+	echo "\n🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥";
+	echo "                                                                                              ";
+	tput setaf 7
+%.o : %.c
+	$(CC) -c $(CFLAGS) $?
+	
+$(NAME): $(OBJ)
+	tput setaf 3
+	printf "COMPILING!\n"
+	tput setaf 7
+	cd ft_printf && make
+#for mac
+	$(CC)  -L /usr/local/Cellar/readline/8.1/lib -lreadline $(OBJ) $(CFLAGS) ./ft_printf/libft.a  -o $(NAME)
+# $(CC)  $(OBJ) $(CFLAGS) -L/usr/local/lib -I/usr/local/include -lreadline ./ft_printf/libft.a -o $(NAME)
+	tput setaf 3
+	printf "done compiling!\n"
+	tput setaf 7
 
-$(NAME): $(OBJS)
-	$(AR) $@ $^
+mm:
+	 valgrind --trace-children=yes --show-leak-kinds=all --leak-check=full --show-reachable=yes --track-fds=yes --error-limit=no --suppressions=./readline.supp ./minishell
+# make re && valgrind --trace-children=yes --track-fds=yes --error-limit=no --suppressions=./readline.supp ./minishell
 
-bonus: $(OBJS_B)
-	$(AR) $(NAME) $^
-
-all: $(NAME)
-
-clean:
-	$(RM) $(OBJS) $(OBJS_B)
+clean: 
+	tput setaf 1
+	printf "Cleaning!\n"
+	tput setaf 7
+	cd ft_printf && make clean
+	rm -f $(OBJ)
 
 fclean: clean
-	$(RM) $(NAME)
+	cd ft_printf && make fclean
+	rm -f $(NAME)
+	tput setaf 3
+	printf "done cleaning!\n"
+	tput setaf 7
 
-re: clean all
+re: fclean all
 
-.PHONY: bonus all clean fclean re
+.PHONY: all clean fclean re

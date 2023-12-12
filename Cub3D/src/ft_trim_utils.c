@@ -3,14 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   ft_trim_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
+/*   By: yoyohann <yoyohann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 23:55:17 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/03/29 23:55:18 by dkaratae         ###   ########.fr       */
+/*   Updated: 2023/03/30 00:12:09 by yoyohann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-
 
 #include "../include/cub.h"
 

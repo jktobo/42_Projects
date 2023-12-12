@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_error.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dkaratae <dkaratae@student.42abudhabi.ae>  +#+  +:+       +#+        */
+/*   By: yoyohann <yoyohann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/29 23:57:36 by dkaratae          #+#    #+#             */
-/*   Updated: 2023/03/29 23:57:38 by dkaratae         ###   ########.fr       */
+/*   Created: 2023/03/14 22:23:42 by yoyohann          #+#    #+#             */
+/*   Updated: 2023/03/15 00:14:17 by yoyohann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

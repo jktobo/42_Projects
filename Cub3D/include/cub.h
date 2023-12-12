@@ -149,7 +149,6 @@ int			ft_load_image(t_cub *cub);
 int			ft_key_pressed(int keycode, t_cub *cub);
 int			ft_key_released(int keycode, t_cub *cub);
 int			player_moves(t_cub *cub, double x, double y);
-int			ft_player_dir(t_cub *cub);
 int			ft_player_rot(t_cub *cub, double rad);
 int			ft_valid_moves(t_cub *cub);
 int			ft_destroy_cub(t_cub *cub);

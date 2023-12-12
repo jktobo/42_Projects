@@ -26,7 +26,7 @@ SRCFILES = $(wildcard src/*.c)
 
 all : $(NAME)
 
-$(NAME):
+$(NAME): $(OBJ)
 	@cd $(LIBFTDIR) && make
 	@cd $(MLXD) && make
 	@cp $(MLXD)$(MLX) .
@@ -43,5 +43,3 @@ fclean: clean
 	$(RM) $(NAME)
 
 re: fclean all
-
-
